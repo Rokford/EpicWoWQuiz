@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HeaderFragment.OnFragmentInteractionListener} interface
+ * {@link com.mobinautsoftware.epicwowquiz.HeaderFragment.OnHeaderFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link HeaderFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -28,7 +28,7 @@ public class HeaderFragment extends Fragment
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private OnHeaderFragmentInteractionListener mListener;
 
     /**
      * Use this factory method to create a new instance of
@@ -77,7 +77,7 @@ public class HeaderFragment extends Fragment
     {
         if (mListener != null)
         {
-            mListener.onFragmentInteraction(uri);
+            mListener.onHeaderFragmentInteraction(uri);
         }
     }
 
@@ -87,11 +87,11 @@ public class HeaderFragment extends Fragment
         super.onAttach(activity);
         try
         {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (OnHeaderFragmentInteractionListener) activity;
         }
         catch (ClassCastException e)
         {
-            throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
+            throw new ClassCastException(activity.toString() + " must implement OnMainMenuFragmentInteractionListener");
         }
     }
 
@@ -112,10 +112,10 @@ public class HeaderFragment extends Fragment
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener
+    public interface OnHeaderFragmentInteractionListener
     {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onHeaderFragmentInteraction(Uri uri);
     }
 
 }

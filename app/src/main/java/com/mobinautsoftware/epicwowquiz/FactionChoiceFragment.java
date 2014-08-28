@@ -3,10 +3,12 @@ package com.mobinautsoftware.epicwowquiz;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 
 /**
@@ -73,12 +75,40 @@ public class FactionChoiceFragment extends Fragment
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri)
+    public void onFactionChosen(String faction)
     {
         if (mListener != null)
         {
-            mListener.onFactionChosen();
+            mListener.onFactionChosen(faction);
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
+        RelativeLayout upperRL = (RelativeLayout) view.findViewById(R.id.upperRL);
+
+        RelativeLayout lowerRL = (RelativeLayout) view.findViewById(R.id.loweRL);
+
+        upperRL.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onFactionChosen(App.FACTION_HORDE);
+            }
+        });
+
+        lowerRL.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onFactionChosen(App.FACTION_ALLIANCE);
+            }
+        });
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
@@ -115,7 +145,7 @@ public class FactionChoiceFragment extends Fragment
     public interface OnFactionChosenListener
     {
         // TODO: Update argument type and name
-        public void onFactionChosen();
+        public void onFactionChosen(String faction);
     }
 
 }

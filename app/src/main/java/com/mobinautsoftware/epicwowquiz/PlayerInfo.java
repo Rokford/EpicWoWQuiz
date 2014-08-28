@@ -5,6 +5,16 @@ package com.mobinautsoftware.epicwowquiz;
  */
 public class PlayerInfo
 {
+    public String getFaction()
+    {
+        return faction;
+    }
+
+    public void setFaction(String faction)
+    {
+        this.faction = faction;
+    }
+
     private String faction;
 
     public int getTier5()

@@ -12,6 +12,8 @@ public class App extends Application
     public static final String SHARED_PREFERENCES_NAME = "SHARED_PREFERENCES_NAME";
 
     public static final String SHARED_PREFERENCES_FACTION = "SHARED_PREFERENCES_FACTION";
+    public static final String FACTION_HORDE = "FACTION_HORDE";
+    public static final String FACTION_ALLIANCE = "FACTION_ALLIANCE";
     public static final String SHARED_PREFERENCES_TIER1 = "SHARED_PREFERENCES_TIER1";
     public static final String SHARED_PREFERENCES_TIER2 = "SHARED_PREFERENCES_TIER2";
     public static final String SHARED_PREFERENCES_TIER3 = "SHARED_PREFERENCES_TIER3";

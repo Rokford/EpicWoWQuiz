@@ -1,5 +1,6 @@
 package com.mobinautsoftware.epicwowquiz;
 
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentTransaction;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
@@ -86,8 +87,33 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     }
 
     @Override
-    public void onFactionChosen()
+    public void onFactionChosen(String faction)
     {
+        playerInfo = new PlayerInfo(faction, 0, 0, 0, 0, 0);
 
+        savePlayerInfo();
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+        FactionChoiceFragment factionChoiceFragment = new FactionChoiceFragment();
+        transaction.replace(R.id.viewer, factionChoiceFragment);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+    }
+
+    private void savePlayerInfo()
+    {
+        SharedPreferences prefs = App.getContext().getSharedPreferences(App.SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putString(App.SHARED_PREFERENCES_FACTION, playerInfo.getFaction());
+        editor.putInt(App.SHARED_PREFERENCES_TIER1, playerInfo.getTier1());
+        editor.putInt(App.SHARED_PREFERENCES_TIER2, playerInfo.getTier2());
+        editor.putInt(App.SHARED_PREFERENCES_TIER3, playerInfo.getTier3());
+        editor.putInt(App.SHARED_PREFERENCES_TIER4, playerInfo.getTier4());
+        editor.putInt(App.SHARED_PREFERENCES_TIER5, playerInfo.getTier5());
+        editor.commit();
     }
 }

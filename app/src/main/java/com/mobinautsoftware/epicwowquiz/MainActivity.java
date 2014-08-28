@@ -12,6 +12,7 @@ import static com.mobinautsoftware.epicwowquiz.MainMenuFragment.OnMainMenuFragme
 
 public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener
 {
+    private PlayerInfo playerInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,9 +45,9 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     }
 
     @Override
-    public void onMainMenuFragmentInteraction(Uri uri)
+    public void onMainMenuFragmentInteraction(PlayerInfo playerInfo)
     {
-
+        this.playerInfo = playerInfo;
     }
 
     @Override

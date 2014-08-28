@@ -1,12 +1,20 @@
 package com.mobinautsoftware.epicwowquiz;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 
 /**
@@ -24,9 +32,14 @@ public class MainMenuFragment extends Fragment
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private static ArrayList<String> mainMenuItems;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ListView mainMenuListView;
+
 
     private OnMainMenuFragmentInteractionListener mListener;
 
@@ -63,6 +76,54 @@ public class MainMenuFragment extends Fragment
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        SharedPreferences prefs = App.getContext().getSharedPreferences(App.SHARED_PREFERENCES_NAME, getActivity().MODE_PRIVATE);
+
+        String faction = prefs.getString(App.SHARED_PREFERENCES_FACTION, "");
+        int tier1 = prefs.getInt(App.SHARED_PREFERENCES_TIER1, 0);
+        int tier2 = prefs.getInt(App.SHARED_PREFERENCES_TIER2, 0);
+        int tier3 = prefs.getInt(App.SHARED_PREFERENCES_TIER3, 0);
+        int tier4 = prefs.getInt(App.SHARED_PREFERENCES_TIER4, 0);
+        int tier5 = prefs.getInt(App.SHARED_PREFERENCES_TIER5, 0);
+
+        mainMenuItems = new ArrayList<String>();
+
+        if (faction.length() > 0)
+        {
+            PlayerInfo playerInfo = new PlayerInfo(faction, tier1, tier2, tier3, tier4, tier5);
+
+            setPlayerInfo(playerInfo);
+
+            mainMenuItems.add(getString(R.string.continue_game));
+        }
+
+        mainMenuItems.add(getString(R.string.new_game));
+        mainMenuItems.add(getString(R.string.help));
+        mainMenuItems.add(getString(R.string.quit));
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
+        ArrayAdapter mainMenuAdapter = new ArrayAdapter(getActivity(), R.layout.main_menu_list_item, R.id.mainMenuTextView, mainMenuItems);
+
+        mainMenuListView = (ListView) view.findViewById(R.id.mainMenuListView);
+
+        mainMenuListView.setAdapter(mainMenuAdapter);
+
+        mainMenuListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                if (parent.getAdapter().getItem(position).equals(getResources().getString(R.string.quit)))
+                {
+                    getActivity().finish();
+                }
+            }
+        });
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
@@ -73,11 +134,11 @@ public class MainMenuFragment extends Fragment
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri)
+    public void setPlayerInfo(PlayerInfo info)
     {
         if (mListener != null)
         {
-            mListener.onMainMenuFragmentInteraction(uri);
+            mListener.onMainMenuFragmentInteraction(info);
         }
     }
 
@@ -115,7 +176,7 @@ public class MainMenuFragment extends Fragment
     public interface OnMainMenuFragmentInteractionListener
     {
         // TODO: Update argument type and name
-        public void onMainMenuFragmentInteraction(Uri uri);
+        public void onMainMenuFragmentInteraction(PlayerInfo info);
     }
 
 }

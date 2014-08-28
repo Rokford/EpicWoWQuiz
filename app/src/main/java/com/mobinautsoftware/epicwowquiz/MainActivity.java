@@ -1,16 +1,19 @@
 package com.mobinautsoftware.epicwowquiz;
 
+import android.support.v4.app.FragmentTransaction;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import static com.mobinautsoftware.epicwowquiz.FactionChoiceFragment.*;
 import static com.mobinautsoftware.epicwowquiz.HeaderFragment.OnHeaderFragmentInteractionListener;
 import static com.mobinautsoftware.epicwowquiz.MainMenuFragment.OnMainMenuFragmentInteractionListener;
 
 
-public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener
+public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener
 {
     private PlayerInfo playerInfo;
 
@@ -51,7 +54,39 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     }
 
     @Override
+    public void onNewGameStart()
+    {
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+        FactionChoiceFragment factionChoiceFragment = new FactionChoiceFragment();
+        transaction.replace(R.id.viewer, factionChoiceFragment);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+    }
+
+    @Override
+    public void onHelp()
+    {
+        //TODO: help fragment
+    }
+
+    @Override
+    public void onContinueGame()
+    {
+
+    }
+
+    @Override
     public void onHeaderFragmentInteraction(Uri uri)
+    {
+
+    }
+
+    @Override
+    public void onFactionChosen()
     {
 
     }

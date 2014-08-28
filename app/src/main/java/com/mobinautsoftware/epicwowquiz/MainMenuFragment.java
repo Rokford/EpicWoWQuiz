@@ -120,6 +120,10 @@ public class MainMenuFragment extends Fragment
                 {
                     getActivity().finish();
                 }
+                else if (parent.getAdapter().getItem(position).equals(getResources().getString(R.string.new_game)))
+                {
+                    showFactionChoice();
+                }
             }
         });
 
@@ -133,7 +137,16 @@ public class MainMenuFragment extends Fragment
         return inflater.inflate(R.layout.fragment_main_menu, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
+    public void showFactionChoice()
+    {
+        if (mListener != null)
+        {
+            mListener.onNewGameStart();
+        }
+    }
+
+
     public void setPlayerInfo(PlayerInfo info)
     {
         if (mListener != null)
@@ -177,6 +190,12 @@ public class MainMenuFragment extends Fragment
     {
         // TODO: Update argument type and name
         public void onMainMenuFragmentInteraction(PlayerInfo info);
+
+        public void onNewGameStart();
+
+        public void onHelp();
+
+        public void onContinueGame();
     }
 
 }

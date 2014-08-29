@@ -3,18 +3,19 @@ package com.mobinautsoftware.epicwowquiz;
 import android.content.SharedPreferences;
 import android.support.v4.app.FragmentTransaction;
 import android.net.Uri;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
 
 import static com.mobinautsoftware.epicwowquiz.FactionChoiceFragment.*;
 import static com.mobinautsoftware.epicwowquiz.HeaderFragment.OnHeaderFragmentInteractionListener;
 import static com.mobinautsoftware.epicwowquiz.MainMenuFragment.OnMainMenuFragmentInteractionListener;
 
 
-public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener
+public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, TierChoiceFragment.OnTierChosenListener
 {
     private PlayerInfo playerInfo;
 
@@ -23,6 +24,15 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+        MainMenuFragment mainMenuFragment = new MainMenuFragment();
+        transaction.replace(R.id.lowerContainer, mainMenuFragment);
+        //        transaction.addToBackStack(null);
+
+        transaction.commit();
     }
 
 
@@ -62,8 +72,8 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
         FactionChoiceFragment factionChoiceFragment = new FactionChoiceFragment();
-        transaction.replace(R.id.viewer, factionChoiceFragment);
-        transaction.addToBackStack(null);
+        transaction.replace(R.id.lowerContainer, factionChoiceFragment);
+//        transaction.addToBackStack(null);
 
         transaction.commit();
     }
@@ -96,9 +106,9 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
-        FactionChoiceFragment factionChoiceFragment = new FactionChoiceFragment();
-        transaction.replace(R.id.viewer, factionChoiceFragment);
-        transaction.addToBackStack(null);
+        TierChoiceFragment tierChoiceFragment = new TierChoiceFragment();
+        transaction.replace(R.id.lowerContainer, tierChoiceFragment);
+//        transaction.addToBackStack(null);
 
         transaction.commit();
     }
@@ -115,5 +125,21 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         editor.putInt(App.SHARED_PREFERENCES_TIER4, playerInfo.getTier4());
         editor.putInt(App.SHARED_PREFERENCES_TIER5, playerInfo.getTier5());
         editor.commit();
+    }
+
+    public boolean shouldShowExtraTier()
+    {
+        return (playerInfo.getTier1() > 2 && playerInfo.getTier2() >2 && playerInfo.getTier3() > 2 && playerInfo.getTier4() > 2);
+    }
+
+    public PlayerInfo getPlayerInfo()
+    {
+        return playerInfo;
+    }
+
+    @Override
+    public void onTierChosen(Uri uri)
+    {
+
     }
 }

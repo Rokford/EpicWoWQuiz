@@ -2,7 +2,6 @@ package com.mobinautsoftware.epicwowquiz;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,8 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
+
 import java.util.ArrayList;
-import java.util.Map;
 
 
 /**

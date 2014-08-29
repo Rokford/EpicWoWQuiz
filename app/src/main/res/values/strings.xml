@@ -10,5 +10,15 @@
     <string name="help">Help</string>
     <string name="quit">Quit</string>
 
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="insane">Insane</string>
+
+    <string name="bronze">Bronze</string>
+    <string name="silver">Silver</string>
+    <string name="gold">Gold</string>
+    <string name="no_medal">No medal</string>
+
 
 </resources>

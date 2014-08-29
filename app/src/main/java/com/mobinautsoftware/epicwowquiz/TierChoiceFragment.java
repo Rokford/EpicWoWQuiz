@@ -3,22 +3,26 @@ package com.mobinautsoftware.epicwowquiz;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquic.adapters.TierChoiceAdapter;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link TierChoiceFragment.OnFragmentInteractionListener} interface
+ * {@link com.mobinautsoftware.epicwowquiz.TierChoiceFragment.OnTierChosenListener} interface
  * to handle interaction events.
  */
 public class TierChoiceFragment extends Fragment
 {
 
-    private OnFragmentInteractionListener mListener;
+    private OnTierChosenListener mListener;
 
     public TierChoiceFragment()
     {
@@ -38,7 +42,7 @@ public class TierChoiceFragment extends Fragment
     {
         if (mListener != null)
         {
-            mListener.onFragmentInteraction(uri);
+            mListener.onTierChosen(uri);
         }
     }
 
@@ -48,12 +52,24 @@ public class TierChoiceFragment extends Fragment
         super.onAttach(activity);
         try
         {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (OnTierChosenListener) activity;
         }
         catch (ClassCastException e)
         {
-            throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
+            throw new ClassCastException(activity.toString() + " must implement OnTierChosenListener");
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
+        ListView tierChoiceListView = (ListView) view.findViewById(R.id.tierChoiceListView);
+
+        TierChoiceAdapter adapter = new TierChoiceAdapter(getActivity(), ((MainActivity) getActivity()).shouldShowExtraTier());
+
+        tierChoiceListView.setAdapter(adapter);
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
@@ -73,10 +89,10 @@ public class TierChoiceFragment extends Fragment
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener
+    public interface OnTierChosenListener
     {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onTierChosen(Uri uri);
     }
 
 }

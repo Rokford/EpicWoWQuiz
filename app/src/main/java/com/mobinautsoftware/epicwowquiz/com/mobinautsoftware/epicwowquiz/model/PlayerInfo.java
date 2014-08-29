@@ -1,4 +1,6 @@
-package com.mobinautsoftware.epicwowquiz;
+package com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model;
+
+import com.mobinautsoftware.epicwowquiz.R;
 
 /**
  * Created by plgrizw on 28.08.2014.
@@ -86,5 +88,39 @@ public class PlayerInfo
         this.tier3 = tier3;
         this.tier4 = tier4;
         this.tier5 = tier5;
+    }
+
+    public static int getMedalResourceForMedal(int tier)
+    {
+        switch (tier)
+        {
+            case 0:
+                return R.drawable.medal_no_medal;
+            case 1:
+                return R.drawable.medal_bronze;
+            case 2:
+                return R.drawable.medal_silver;
+            case 3:
+                return R.drawable.medal_gold;
+            default:
+                return R.drawable.medal_no_medal;
+        }
+    }
+
+    public static int getMedalString(int tier)
+    {
+        switch (tier)
+        {
+            case 0:
+                return R.string.no_medal;
+            case 1:
+                return R.string.bronze;
+            case 2:
+                return R.string.silver;
+            case 3:
+                return R.string.gold;
+            default:
+                return R.string.no_medal;
+        }
     }
 }

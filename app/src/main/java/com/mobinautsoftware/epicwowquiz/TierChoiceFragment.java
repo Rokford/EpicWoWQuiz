@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquic.adapters.TierChoiceAdapter;
@@ -38,11 +39,11 @@ public class TierChoiceFragment extends Fragment
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri)
+    public void onTierChosen(String tier)
     {
         if (mListener != null)
         {
-            mListener.onTierChosen(uri);
+            mListener.onTierChosen(tier);
         }
     }
 
@@ -69,6 +70,15 @@ public class TierChoiceFragment extends Fragment
 
         tierChoiceListView.setAdapter(adapter);
 
+        tierChoiceListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                onTierChosen((String) parent.getAdapter().getItem(position));
+            }
+        });
+
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -92,7 +102,7 @@ public class TierChoiceFragment extends Fragment
     public interface OnTierChosenListener
     {
         // TODO: Update argument type and name
-        public void onTierChosen(Uri uri);
+        public void onTierChosen(String tier);
     }
 
 }

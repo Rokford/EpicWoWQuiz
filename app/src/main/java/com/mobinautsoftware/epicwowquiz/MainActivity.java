@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Game;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
 
 import static com.mobinautsoftware.epicwowquiz.FactionChoiceFragment.*;
@@ -18,6 +19,7 @@ import static com.mobinautsoftware.epicwowquiz.MainMenuFragment.OnMainMenuFragme
 public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, TierChoiceFragment.OnTierChosenListener
 {
     private PlayerInfo playerInfo;
+    private Game currentGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -138,8 +140,8 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     }
 
     @Override
-    public void onTierChosen(Uri uri)
+    public void onTierChosen(String tier)
     {
-
+        currentGame = Game.startNewGame(tier);
     }
 }

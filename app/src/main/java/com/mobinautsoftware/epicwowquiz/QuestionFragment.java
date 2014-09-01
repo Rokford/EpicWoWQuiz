@@ -3,11 +3,16 @@ package com.mobinautsoftware.epicwowquiz;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquic.adapters.QuestionAdapter;
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Answer;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Question;
 
 
@@ -24,6 +29,8 @@ public class QuestionFragment extends Fragment
     private static final String ARG_QUESTION = "ARG_QUESTION";
 
     private Question question;
+
+    private Answer answer;
 
     private OnAnswerSelectedListener mListener;
 
@@ -58,6 +65,29 @@ public class QuestionFragment extends Fragment
     {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_question, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
+        ListView questionListView = (ListView) view.findViewById(R.id.listView);
+
+        QuestionAdapter adapter = new QuestionAdapter(getActivity());
+
+        adapter.setQuestion(question);
+
+        questionListView.setAdapter(adapter);
+
+        questionListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                answer = (Answer) parent.getAdapter().getItem(position);
+            }
+        });
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     public void onAnswerSelected(boolean isCorrectAnswerSelected)

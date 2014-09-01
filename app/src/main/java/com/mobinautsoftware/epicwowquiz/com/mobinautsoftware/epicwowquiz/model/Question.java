@@ -15,7 +15,29 @@ public class Question implements Serializable
     public static String DIFFICULTY_INSANE = "DIFFICULTY_INSANE";
 
     private String difficulty;
+
+    public String getQuestionText()
+    {
+        return questionText;
+    }
+
+    public void setQuestionText(String questionText)
+    {
+        this.questionText = questionText;
+    }
+
     private String questionText;
+
+    public ArrayList<Answer> getAnswers()
+    {
+        return answers;
+    }
+
+    public void setAnswers(ArrayList<Answer> answers)
+    {
+        this.answers = answers;
+    }
+
     private ArrayList<Answer> answers;
 
     public Question(String questionText, String difficulty, ArrayList<Answer> answers)

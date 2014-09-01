@@ -7,6 +7,26 @@ import java.io.Serializable;
  */
 public class Answer implements Serializable
 {
+    public String getAnswerText()
+    {
+        return answerText;
+    }
+
+    public void setAnswerText(String answerText)
+    {
+        this.answerText = answerText;
+    }
+
+    public boolean isCorrectAnswer()
+    {
+        return correctAnswer;
+    }
+
+    public void setCorrectAnswer(boolean correctAnswer)
+    {
+        this.correctAnswer = correctAnswer;
+    }
+
     private String answerText;
     private boolean correctAnswer;
 

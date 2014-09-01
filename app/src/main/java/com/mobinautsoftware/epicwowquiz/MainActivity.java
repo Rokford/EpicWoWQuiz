@@ -14,9 +14,11 @@ import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.P
 import static com.mobinautsoftware.epicwowquiz.FactionChoiceFragment.*;
 import static com.mobinautsoftware.epicwowquiz.HeaderFragment.OnHeaderFragmentInteractionListener;
 import static com.mobinautsoftware.epicwowquiz.MainMenuFragment.OnMainMenuFragmentInteractionListener;
+import static com.mobinautsoftware.epicwowquiz.QuestionFragment.OnAnswerSelectedListener;
+import static com.mobinautsoftware.epicwowquiz.TierChoiceFragment.*;
 
 
-public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, TierChoiceFragment.OnTierChosenListener
+public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, OnTierChosenListener, OnAnswerSelectedListener
 {
     private PlayerInfo playerInfo;
     private Game currentGame;
@@ -41,7 +43,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -49,9 +50,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings)
         {
@@ -75,7 +73,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         FactionChoiceFragment factionChoiceFragment = new FactionChoiceFragment();
         transaction.replace(R.id.lowerContainer, factionChoiceFragment);
-//        transaction.addToBackStack(null);
+        //        transaction.addToBackStack(null);
 
         transaction.commit();
     }
@@ -110,7 +108,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         TierChoiceFragment tierChoiceFragment = new TierChoiceFragment();
         transaction.replace(R.id.lowerContainer, tierChoiceFragment);
-//        transaction.addToBackStack(null);
+        //        transaction.addToBackStack(null);
 
         transaction.commit();
     }
@@ -131,7 +129,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
     public boolean shouldShowExtraTier()
     {
-        return (playerInfo.getTier1() > 2 && playerInfo.getTier2() >2 && playerInfo.getTier3() > 2 && playerInfo.getTier4() > 2);
+        return (playerInfo.getTier1() > 2 && playerInfo.getTier2() > 2 && playerInfo.getTier3() > 2 && playerInfo.getTier4() > 2);
     }
 
     public PlayerInfo getPlayerInfo()
@@ -143,5 +141,11 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     public void onTierChosen(String tier)
     {
         currentGame = Game.startNewGame(tier);
+    }
+
+    @Override
+    public void onAnswerSelected(boolean isCorrectAnswerSelected)
+    {
+
     }
 }

@@ -101,7 +101,6 @@ public class TierChoiceFragment extends Fragment
      */
     public interface OnTierChosenListener
     {
-        // TODO: Update argument type and name
         public void onTierChosen(String tier);
     }
 

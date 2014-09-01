@@ -1,12 +1,13 @@
 package com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**
  * Created by plgrizw on 29.08.2014.
  */
-public class Question
+public class Question implements Serializable
 {
     public static String DIFFICULTY_EASY = "DIFFICULTY_EASY";
     public static String DIFFICULTY_MEDIUM = "DIFFICULTY_MEDIUM";

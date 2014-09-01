@@ -3,13 +3,16 @@ package com.mobinautsoftware.epicwowquiz;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquic.adapters.QuestionAdapter;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Answer;
@@ -28,11 +31,15 @@ public class QuestionFragment extends Fragment
 {
     private static final String ARG_QUESTION = "ARG_QUESTION";
 
+    private static final int TIME_LIMIT = 1 * 10 * 1000;
+
     private Question question;
 
     private Answer answer;
 
     private OnAnswerSelectedListener mListener;
+
+    private ProgressBar progressBar;
 
     public static QuestionFragment newInstance(Question question)
     {
@@ -87,7 +94,46 @@ public class QuestionFragment extends Fragment
             }
         });
 
+        Button nextButton = (Button) view.findViewById(R.id.nextButton);
+
+        nextButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                checkAnswer();
+            }
+        });
+
+        progressBar.setProgress(0);
+
+        /** CountDownTimer starts with 1 minutes and every onTick is 1 second */
+        CountDownTimer cdt = new CountDownTimer(TIME_LIMIT, 1000)
+        {
+
+            public void onTick(long millisUntilFinished)
+            {
+                int currentTime = (int) ((TIME_LIMIT / 60) * 100);
+                progressBar.setProgress(currentTime);
+            }
+
+            public void onFinish()
+            {
+                checkAnswer();
+            }
+        }.start();
+
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    private void checkAnswer()
+    {
+        if (answer != null)
+        {
+            onAnswerSelected(answer.isCorrectAnswer());
+        }
+        else
+            onAnswerSelected(false);
     }
 
     public void onAnswerSelected(boolean isCorrectAnswerSelected)
@@ -119,16 +165,6 @@ public class QuestionFragment extends Fragment
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnAnswerSelectedListener
     {
         // TODO: Update argument type and name

@@ -67,28 +67,5 @@
             "correctAnswer": "correctanswer3easy",
             "question": "question3easy?"
         }
-    ],
-    "insane": [
-        {
-            "answer1": "answer11easy",
-            "answer2": "answer12easy",
-            "answer3": "answer13easy",
-            "correctAnswer": "correctanswer1easy",
-            "question": "question1easy?"
-        },
-        {
-            "answer1": "answer21",
-            "answer2": "answer22",
-            "answer3": "answer23",
-            "correctAnswer": "correctanswer2easy",
-            "question": "question2easy?"
-        },
-        {
-            "answer1": "answer31",
-            "answer2": "answer32",
-            "answer3": "answer33",
-            "correctAnswer": "correctanswer3easy",
-            "question": "question3easy?"
-        }
     ]
 }

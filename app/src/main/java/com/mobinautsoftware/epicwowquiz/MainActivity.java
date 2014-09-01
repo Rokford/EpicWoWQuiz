@@ -1,21 +1,30 @@
 package com.mobinautsoftware.epicwowquiz;
 
 import android.content.SharedPreferences;
-import android.support.v4.app.FragmentTransaction;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Answer;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Game;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Question;
 
-import static com.mobinautsoftware.epicwowquiz.FactionChoiceFragment.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import static com.mobinautsoftware.epicwowquiz.FactionChoiceFragment.OnFactionChosenListener;
 import static com.mobinautsoftware.epicwowquiz.HeaderFragment.OnHeaderFragmentInteractionListener;
 import static com.mobinautsoftware.epicwowquiz.MainMenuFragment.OnMainMenuFragmentInteractionListener;
 import static com.mobinautsoftware.epicwowquiz.QuestionFragment.OnAnswerSelectedListener;
-import static com.mobinautsoftware.epicwowquiz.TierChoiceFragment.*;
+import static com.mobinautsoftware.epicwowquiz.TierChoiceFragment.OnTierChosenListener;
 
 
 public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, OnTierChosenListener, OnAnswerSelectedListener
@@ -23,11 +32,16 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     private PlayerInfo playerInfo;
     private Game currentGame;
 
+    private ArrayList<Question> easyQuestions;
+    private ArrayList<Question> mediumQuestions;
+    private ArrayList<Question> hardQuestions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
@@ -147,5 +161,76 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     public void onAnswerSelected(boolean isCorrectAnswerSelected)
     {
 
+    }
+
+    private void getQuestionsFromAssets()
+    {
+        InputStream input = null;
+        String questionsString = null;
+
+        try
+        {
+            input = getAssets().open("questions.json");
+            int size = input.available();
+            byte[] buffer = new byte[size];
+            input.read(buffer);
+
+            input.close();
+            // byte buffer into a string
+            questionsString = new String(buffer);
+
+            JSONObject outerJSONObject = new JSONObject(questionsString);
+
+            JSONArray easyJSONArray = outerJSONObject.getJSONArray("easy");
+            JSONArray mediumJSONArray = outerJSONObject.getJSONArray("medium");
+            JSONArray hardJSONArray = outerJSONObject.getJSONArray("hard");
+
+            easyQuestions = new ArrayList<Question>();
+            mediumQuestions = new ArrayList<Question>();
+            hardQuestions = new ArrayList<Question>();
+
+            createAndAddQuestions(easyQuestions, easyJSONArray, Question.DIFFICULTY_EASY);
+            createAndAddQuestions(mediumQuestions, mediumJSONArray, Question.DIFFICULTY_MEDIUM);
+            createAndAddQuestions(hardQuestions, hardJSONArray, Question.DIFFICULTY_HARD);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private void createAndAddQuestions(ArrayList<Question> questionsList, JSONArray questionsJSONArray, String difficulty)
+    {
+        for (int i = 0; i < questionsJSONArray.length(); i++)
+        {
+            JSONObject questionJSONObject = null;
+            try
+            {
+                questionJSONObject = questionsJSONArray.getJSONObject(i);
+
+                ArrayList<Answer> answers = new ArrayList<Answer>();
+
+                Answer a1 = new Answer((String) questionJSONObject.get("answer1"), false);
+                Answer a2 = new Answer((String) questionJSONObject.get("answer2"), false);
+                Answer a3 = new Answer((String) questionJSONObject.get("answer3"), false);
+                Answer correctAnswer = new Answer((String) questionJSONObject.get("correctAnswer"), true);
+
+                answers.add(a1);
+                answers.add(a2);
+                answers.add(a3);
+                answers.add(correctAnswer);
+
+                Question questionToAdd = new Question((String) questionJSONObject.get("question"), difficulty, answers);
+
+                questionsList.add(questionToAdd);
+
+            }
+            catch (JSONException e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 }

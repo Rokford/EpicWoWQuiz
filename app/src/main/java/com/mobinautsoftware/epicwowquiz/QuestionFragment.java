@@ -108,32 +108,57 @@ public class QuestionFragment extends Fragment
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
 
-        super.onViewCreated(view, savedInstanceState);
-    }
 
-    @Override
-    public void onResume()
-    {
-        progressBar.setProgress(0);
+        //        progressBar.setProgress(0);
+        //
+        //        /** CountDownTimer starts with 1 minutes and every onTick is 1 second */
+        //        CountDownTimer cdt = new CountDownTimer(TIME_LIMIT, 1000)
+        //        {
+        //            public void onTick(long millisUntilFinished)
+        //            {
+        //                int currentTime = (int) (( TIME_LIMIT - millisUntilFinished ) /(double)TIME_LIMIT * 100);
+        //
+        //                Log.e("time tick", Integer.valueOf(currentTime).toString());
+        //
+        //                progressBar.setProgress(currentTime);
+        //            }
+        //
+        //            public void onFinish()
+        //            {
+        //                checkAnswer();
+        //            }
+        //        }.start();
 
-        /** CountDownTimer starts with 1 minutes and every onTick is 1 second */
-        CountDownTimer cdt = new CountDownTimer(TIME_LIMIT, 1000)
+        progressBar.setProgress(100);
+
+        final int totalMsecs = 10 * 1000; // 10 seconds in milli seconds
+
+        int callInterval = 100;
+
+        /** CountDownTimer */
+        new CountDownTimer(totalMsecs, callInterval)
         {
+
             public void onTick(long millisUntilFinished)
             {
-                int currentTime = (int) (( TIME_LIMIT - millisUntilFinished ) /(double)TIME_LIMIT * 100);
 
-                Log.e("time tick", Integer.valueOf(currentTime).toString());
+                int secondsRemaining = (int) millisUntilFinished / 1000;
 
-                progressBar.setProgress(currentTime);
+                float fraction = millisUntilFinished / (float) totalMsecs;
+
+                // progress bar is based on scale of 1 to 100;
+                progressBar.setProgress((int) (fraction * 100));
             }
 
+            @Override
             public void onFinish()
             {
-                checkAnswer();
+
             }
         }.start();
-        super.onResume();
+
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     private void checkAnswer()

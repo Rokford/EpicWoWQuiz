@@ -42,6 +42,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getQuestionsFromAssets();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
@@ -155,6 +156,15 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     public void onTierChosen(String tier)
     {
         currentGame = Game.startNewGame(tier);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+
+        QuestionFragment questionFragment = QuestionFragment.newInstance(easyQuestions.get(0));
+        transaction.replace(R.id.lowerContainer, questionFragment);
+
+        transaction.commit();
     }
 
     @Override
@@ -162,6 +172,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     {
 
     }
+
 
     private void getQuestionsFromAssets()
     {

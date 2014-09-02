@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,15 +106,25 @@ public class QuestionFragment extends Fragment
             }
         });
 
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onResume()
+    {
         progressBar.setProgress(0);
 
         /** CountDownTimer starts with 1 minutes and every onTick is 1 second */
         CountDownTimer cdt = new CountDownTimer(TIME_LIMIT, 1000)
         {
-
             public void onTick(long millisUntilFinished)
             {
-                int currentTime = (int) ((TIME_LIMIT / 60) * 100);
+                int currentTime = (int) (( TIME_LIMIT - millisUntilFinished ) /(double)TIME_LIMIT * 100);
+
+                Log.e("time tick", Integer.valueOf(currentTime).toString());
+
                 progressBar.setProgress(currentTime);
             }
 
@@ -122,8 +133,7 @@ public class QuestionFragment extends Fragment
                 checkAnswer();
             }
         }.start();
-
-        super.onViewCreated(view, savedInstanceState);
+        super.onResume();
     }
 
     private void checkAnswer()

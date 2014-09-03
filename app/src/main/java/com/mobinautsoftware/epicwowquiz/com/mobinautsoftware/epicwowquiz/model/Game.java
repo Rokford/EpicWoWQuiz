@@ -1,5 +1,7 @@
 package com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by Leoman on 2014-08-31.
  */
@@ -8,16 +10,30 @@ public class Game
     private boolean isPlaying = false;
     private String difficulty;
     private int score = 0;
+    private int questionCounter = 0;
+    private ArrayList<Question> questionsForCurrentGame;
 
-    public int getQuestionCounter()
+    private static Game game;
+
+    private Game(String difficulty)
     {
-        return questionCounter;
+        this.difficulty = difficulty;
     }
 
-    public void setQuestionCounter(int questionCounter)
+    public static Game startNewGame(String difficulty)
     {
-        this.questionCounter = questionCounter;
+        game = new Game(difficulty);
+
+
+
+        return game;
     }
+
+    public static Game getCurrentGame()
+    {
+        return game;
+    }
+
 
     public int getScore()
     {
@@ -39,24 +55,23 @@ public class Game
         this.isPlaying = isPlaying;
     }
 
-    private int questionCounter = 0;
-
-    private static Game game;
-
-    private Game(String difficulty)
+    public int getQuestionCounter()
     {
-        this.difficulty = difficulty;
+        return questionCounter;
     }
 
-    public static Game startNewGame(String difficulty)
+    public void setQuestionCounter(int questionCounter)
     {
-       game = new Game(difficulty);
-
-        return game;
+        this.questionCounter = questionCounter;
     }
 
-    public static Game getCurrentGame()
+    public ArrayList<Question> getQuestionsForCurrentGame()
     {
-        return game;
+        return questionsForCurrentGame;
+    }
+
+    public void setQuestionsForCurrentGame(ArrayList<Question> questionsForCurrentGame)
+    {
+        this.questionsForCurrentGame = questionsForCurrentGame;
     }
 }

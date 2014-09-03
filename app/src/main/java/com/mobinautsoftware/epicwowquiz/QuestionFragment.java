@@ -10,11 +10,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.google.android.gms.internal.ch;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquic.adapters.QuestionAdapter;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Answer;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Question;
@@ -78,9 +80,9 @@ public class QuestionFragment extends Fragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
     {
-        ListView questionListView = (ListView) view.findViewById(R.id.listView);
+        final ListView questionListView = (ListView) view.findViewById(R.id.listView);
 
-        QuestionAdapter adapter = new QuestionAdapter(getActivity());
+        final QuestionAdapter adapter = new QuestionAdapter(getActivity());
 
         adapter.setQuestion(question);
 
@@ -92,8 +94,11 @@ public class QuestionFragment extends Fragment
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 answer = (Answer) parent.getAdapter().getItem(position);
+                adapter.setSelectedIndex(position);
             }
         });
+
+        questionListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         Button nextButton = (Button) view.findViewById(R.id.nextButton);
 
@@ -108,35 +113,12 @@ public class QuestionFragment extends Fragment
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
 
-
-        //        progressBar.setProgress(0);
-        //
-        //        /** CountDownTimer starts with 1 minutes and every onTick is 1 second */
-        //        CountDownTimer cdt = new CountDownTimer(TIME_LIMIT, 1000)
-        //        {
-        //            public void onTick(long millisUntilFinished)
-        //            {
-        //                int currentTime = (int) (( TIME_LIMIT - millisUntilFinished ) /(double)TIME_LIMIT * 100);
-        //
-        //                Log.e("time tick", Integer.valueOf(currentTime).toString());
-        //
-        //                progressBar.setProgress(currentTime);
-        //            }
-        //
-        //            public void onFinish()
-        //            {
-        //                checkAnswer();
-        //            }
-        //        }.start();
-
         progressBar.setProgress(100);
-
-        final int totalMsecs = 10 * 1000; // 10 seconds in milli seconds
 
         int callInterval = 100;
 
         /** CountDownTimer */
-        new CountDownTimer(totalMsecs, callInterval)
+        new CountDownTimer(TIME_LIMIT, callInterval)
         {
 
             public void onTick(long millisUntilFinished)
@@ -144,7 +126,7 @@ public class QuestionFragment extends Fragment
 
                 int secondsRemaining = (int) millisUntilFinished / 1000;
 
-                float fraction = millisUntilFinished / (float) totalMsecs;
+                float fraction = millisUntilFinished / (float) TIME_LIMIT;
 
                 // progress bar is based on scale of 1 to 100;
                 progressBar.setProgress((int) (fraction * 100));
@@ -153,7 +135,7 @@ public class QuestionFragment extends Fragment
             @Override
             public void onFinish()
             {
-
+                checkAnswer();
             }
         }.start();
 

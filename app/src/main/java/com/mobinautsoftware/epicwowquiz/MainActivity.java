@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,6 +20,7 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static com.mobinautsoftware.epicwowquiz.FactionChoiceFragment.OnFactionChosenListener;
 import static com.mobinautsoftware.epicwowquiz.HeaderFragment.OnHeaderFragmentInteractionListener;
@@ -31,6 +33,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 {
     private PlayerInfo playerInfo;
     private Game currentGame;
+    private static int MAX_QUESTIONS = 10;
 
     private ArrayList<Question> easyQuestions;
     private ArrayList<Question> mediumQuestions;
@@ -157,20 +160,86 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     {
         currentGame = Game.startNewGame(tier);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+        Collections.shuffle(easyQuestions);
+        Collections.shuffle(mediumQuestions);
+        Collections.shuffle(hardQuestions);
 
+        if (tier.equals(Question.DIFFICULTY_EASY))
+        {
+            currentGame.setQuestionsForCurrentGame(getQuestionsForCurrentGame(5, 3, 2));
+        }
+        else if (tier.equals(Question.DIFFICULTY_MEDIUM))
+        {
+            currentGame.setQuestionsForCurrentGame(getQuestionsForCurrentGame(3, 4, 3));
+        }
+        else if (tier.equals(Question.DIFFICULTY_HARD))
+        {
+            currentGame.setQuestionsForCurrentGame(getQuestionsForCurrentGame(2, 3, 5));
+        }
+        else if (tier.equals(Question.DIFFICULTY_INSANE))
+        {
+            currentGame.setQuestionsForCurrentGame(getQuestionsForCurrentGame(0, 3, 7));
+        }
 
-        QuestionFragment questionFragment = QuestionFragment.newInstance(easyQuestions.get(0));
-        transaction.replace(R.id.lowerContainer, questionFragment);
+        displayNextQuestion();
+    }
 
-        transaction.commit();
+    private ArrayList<Question> getQuestionsForCurrentGame(int easy, int medium, int hard)
+    {
+        ArrayList<Question> questions = new ArrayList<Question>();
+
+        for (int i = 0; i < easy; i++)
+        {
+            questions.add(easyQuestions.get(i));
+        }
+        for (int i = 0; i < medium; i++)
+        {
+            questions.add(mediumQuestions.get(i));
+        }
+        for (int i = 0; i < hard; i++)
+        {
+            questions.add(hardQuestions.get(i));
+        }
+
+        return questions;
     }
 
     @Override
     public void onAnswerSelected(boolean isCorrectAnswerSelected)
     {
+        if (isCorrectAnswerSelected)
+        {
+            currentGame.setScore(currentGame.getScore() + 1);
 
+            Log.e("correct answer", "current score:" + Integer.valueOf(currentGame.getScore()).toString());
+        }
+
+        currentGame.setQuestionCounter(currentGame.getQuestionCounter() + 1);
+
+        if (currentGame.getQuestionCounter() < 10)
+        {
+            displayNextQuestion();
+        }
+        else
+        {
+            //TODO:end game, display score etc.
+        }
+
+    }
+
+    private void displayNextQuestion()
+    {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+        QuestionFragment questionFragment = QuestionFragment.newInstance(currentGame.getQuestionsForCurrentGame().get(currentGame.getQuestionCounter()));
+
+//        Log.e("getting question...", "q no:" + Integer.valueOf(currentGame.getScore()).toString());
+        Log.e("question counter", "question counter for this game:" + Integer.valueOf(currentGame.getQuestionCounter()).toString());
+
+        transaction.replace(R.id.lowerContainer, questionFragment);
+
+        transaction.commit();
     }
 
 

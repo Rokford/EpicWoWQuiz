@@ -23,6 +23,19 @@ public class QuestionAdapter extends BaseAdapter
     private int TYPE_QUESTION = 0;
     private int TYPE_ANSWER = 1;
 
+    public int getSelectedIndex()
+    {
+        return selectedIndex;
+    }
+
+    public void setSelectedIndex(int selectedIndex)
+    {
+        this.selectedIndex = selectedIndex;
+        notifyDataSetChanged();
+    }
+
+    private int selectedIndex = -1;
+
     public Question getQuestion()
     {
         return question;
@@ -59,7 +72,7 @@ public class QuestionAdapter extends BaseAdapter
     @Override
     public int getCount()
     {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -117,10 +130,22 @@ public class QuestionAdapter extends BaseAdapter
         if (getItemViewType(position) == TYPE_QUESTION)
         {
             holder.questionTextView.setText(question.getQuestionText());
+
         }
         else
         {
             holder.answerTextView.setText(question.getAnswers().get(position - 1).getAnswerText());
+
+            if (selectedIndex != -1 && selectedIndex == position)
+            {
+                convertView.setBackgroundColor(App.getContext().getResources().getColor(R.color.blue));
+                holder.answerTextView.setTextColor(App.getContext().getResources().getColor(android.R.color.white));
+            }
+            else
+            {
+                convertView.setBackgroundColor(App.getContext().getResources().getColor(android.R.color.transparent));
+                holder.answerTextView.setTextColor(App.getContext().getResources().getColor(android.R.color.black));
+            }
         }
 
 

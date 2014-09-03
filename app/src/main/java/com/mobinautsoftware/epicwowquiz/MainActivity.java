@@ -141,7 +141,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         editor.putInt(App.SHARED_PREFERENCES_TIER2, playerInfo.getTier2());
         editor.putInt(App.SHARED_PREFERENCES_TIER3, playerInfo.getTier3());
         editor.putInt(App.SHARED_PREFERENCES_TIER4, playerInfo.getTier4());
-        editor.putInt(App.SHARED_PREFERENCES_TIER5, playerInfo.getTier5());
         editor.commit();
     }
 
@@ -222,9 +221,16 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         }
         else
         {
-            //TODO:end game, display score etc.
+            assignMedal();
         }
 
+    }
+
+    private void assignMedal()
+    {
+        playerInfo.setTier(currentGame.getDifficulty(), currentGame.getScore());
+
+        savePlayerInfo();
     }
 
     private void displayNextQuestion()

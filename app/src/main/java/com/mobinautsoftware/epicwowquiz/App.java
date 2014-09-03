@@ -18,7 +18,6 @@ public class App extends Application
     public static final String SHARED_PREFERENCES_TIER2 = "SHARED_PREFERENCES_TIER2";
     public static final String SHARED_PREFERENCES_TIER3 = "SHARED_PREFERENCES_TIER3";
     public static final String SHARED_PREFERENCES_TIER4 = "SHARED_PREFERENCES_TIER4";
-    public static final String SHARED_PREFERENCES_TIER5 = "SHARED_PREFERENCES_TIER5";
 
 
 

@@ -74,4 +74,9 @@ public class Game
     {
         this.questionsForCurrentGame = questionsForCurrentGame;
     }
+
+    public String getDifficulty()
+    {
+        return difficulty;
+    }
 }

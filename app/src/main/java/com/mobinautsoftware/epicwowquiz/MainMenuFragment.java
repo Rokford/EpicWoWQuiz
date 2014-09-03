@@ -84,13 +84,12 @@ public class MainMenuFragment extends Fragment
         int tier2 = prefs.getInt(App.SHARED_PREFERENCES_TIER2, 0);
         int tier3 = prefs.getInt(App.SHARED_PREFERENCES_TIER3, 0);
         int tier4 = prefs.getInt(App.SHARED_PREFERENCES_TIER4, 0);
-        int tier5 = prefs.getInt(App.SHARED_PREFERENCES_TIER5, 0);
 
         mainMenuItems = new ArrayList<String>();
 
         if (faction.length() > 0)
         {
-            PlayerInfo playerInfo = new PlayerInfo(faction, tier1, tier2, tier3, tier4, tier5);
+            PlayerInfo playerInfo = new PlayerInfo(faction, tier1, tier2, tier3, tier4);
 
             setPlayerInfo(playerInfo);
 

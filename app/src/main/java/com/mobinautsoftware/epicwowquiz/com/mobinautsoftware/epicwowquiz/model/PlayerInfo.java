@@ -49,13 +49,25 @@ public class PlayerInfo
         this.faction = faction;
     }
 
-    public PlayerInfo(String faction, int tier1, int tier2, int tier3, int tier4, int tier5)
+    public PlayerInfo(String faction, int tier1, int tier2, int tier3, int tier4)
     {
         this.faction = faction;
         this.tier1 = tier1;
         this.tier2 = tier2;
         this.tier3 = tier3;
         this.tier4 = tier4;
+    }
+
+    public int getTier(String difficulty)
+    {
+        if (difficulty.equals(Question.DIFFICULTY_EASY))
+            return tier1;
+        else if (difficulty.equals(Question.DIFFICULTY_MEDIUM))
+            return tier2;
+        else if (difficulty.equals(Question.DIFFICULTY_HARD))
+            return tier3;
+        else
+            return tier4;
     }
 
     public void setTier(String difficulty, int score)

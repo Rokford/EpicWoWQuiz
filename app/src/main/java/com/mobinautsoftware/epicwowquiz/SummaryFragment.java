@@ -3,16 +3,22 @@ package com.mobinautsoftware.epicwowquiz;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SummaryFragment.OnFragmentInteractionListener} interface
+ * {@link com.mobinautsoftware.epicwowquiz.SummaryFragment.OnSummaryButtonPressedListener} interface
  * to handle interaction events.
  * Use the {@link SummaryFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -21,30 +27,24 @@ public class SummaryFragment extends Fragment
 {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_SCORE = "ARG_SCORE";
+    private static final String ARG_MEDAL_RESOURCE = "ARG_MEDAL_RESOURCE";
+    private static final String ARG_MEDAL_STRING = "ARG_MEDAL_STRING";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private int score;
+    private int medal_drawable;
+    private int medal_string;
 
-    private OnFragmentInteractionListener mListener;
+    private OnSummaryButtonPressedListener mListener;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SummaryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SummaryFragment newInstance(String param1, String param2)
+    public static SummaryFragment newInstance(int score, int medalDrawable, int medalString)
     {
         SummaryFragment fragment = new SummaryFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_SCORE, score);
+        args.putInt(ARG_MEDAL_RESOURCE, medalDrawable);
+        args.putInt(ARG_MEDAL_STRING, medalString);
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,8 +60,9 @@ public class SummaryFragment extends Fragment
         super.onCreate(savedInstanceState);
         if (getArguments() != null)
         {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            this.score = getArguments().getInt(ARG_SCORE);
+            this.medal_drawable = getArguments().getInt(ARG_MEDAL_RESOURCE);
+            this.medal_string = getArguments().getInt(ARG_MEDAL_STRING);
         }
     }
 
@@ -72,12 +73,46 @@ public class SummaryFragment extends Fragment
         return inflater.inflate(R.layout.fragment_summary, container, false);
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
+        super.onViewCreated(view, savedInstanceState);
+
+        TextView scoreTextView = (TextView) view.findViewById(R.id.scoreTextView);
+        TextView medalTextView = (TextView) view.findViewById(R.id.medalNameTextView);
+        ImageView medalImageView = (ImageView) view.findViewById(R.id.medalImageView);
+
+        Button anotherGameButton = (Button) view.findViewById(R.id.anotherGameButton);
+        Button backToMenuButton = (Button) view.findViewById(R.id.backButton);
+
+        scoreTextView.setText(Integer.valueOf(score).toString());
+        medalTextView.setText(getString(medal_string));
+        medalImageView.setImageResource(medal_drawable);
+
+        anotherGameButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onButtonPressed(true);
+            }
+        });
+        backToMenuButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onButtonPressed(false);
+            }
+        });
+    }
+
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri)
+    public void onButtonPressed(boolean anotherGame)
     {
         if (mListener != null)
         {
-            mListener.onFragmentInteraction(uri);
+            mListener.onSummaryButtonPressed(anotherGame);
         }
     }
 
@@ -87,11 +122,11 @@ public class SummaryFragment extends Fragment
         super.onAttach(activity);
         try
         {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (OnSummaryButtonPressedListener) activity;
         }
         catch (ClassCastException e)
         {
-            throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
+            throw new ClassCastException(activity.toString() + " must implement OnSummaryButtonPressedListener");
         }
     }
 
@@ -102,10 +137,10 @@ public class SummaryFragment extends Fragment
         mListener = null;
     }
 
-    public interface OnFragmentInteractionListener
+    public interface OnSummaryButtonPressedListener
     {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onSummaryButtonPressed(boolean anotherGame);
     }
 
 }

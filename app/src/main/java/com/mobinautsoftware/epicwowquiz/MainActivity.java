@@ -29,7 +29,7 @@ import static com.mobinautsoftware.epicwowquiz.QuestionFragment.OnAnswerSelected
 import static com.mobinautsoftware.epicwowquiz.TierChoiceFragment.OnTierChosenListener;
 
 
-public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, OnTierChosenListener, OnAnswerSelectedListener
+public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, OnTierChosenListener, OnAnswerSelectedListener, SummaryFragment.OnSummaryButtonPressedListener
 {
     private PlayerInfo playerInfo;
     private Game currentGame;
@@ -117,7 +117,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     public void onFactionChosen(String faction)
     {
-        playerInfo = new PlayerInfo(faction, 0, 0, 0, 0, 0);
+        playerInfo = new PlayerInfo(faction, 0, 0, 0, 0);
 
         savePlayerInfo();
 
@@ -221,17 +221,24 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         }
         else
         {
-            assignMedal();
+            playerInfo.setTier(currentGame.getDifficulty(), currentGame.getScore());
+
+            savePlayerInfo();
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+            int tempTier = playerInfo.getTier(currentGame.getDifficulty());
+
+            SummaryFragment summaryFragment = SummaryFragment.newInstance(currentGame.getScore(), PlayerInfo.getMedalResourceForMedal(tempTier), PlayerInfo.getMedalString(tempTier));
+
+            transaction.replace(R.id.lowerContainer, summaryFragment);
+
+            transaction.commit();
         }
 
     }
 
-    private void assignMedal()
-    {
-        playerInfo.setTier(currentGame.getDifficulty(), currentGame.getScore());
-
-        savePlayerInfo();
-    }
 
     private void displayNextQuestion()
     {
@@ -318,5 +325,26 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void onSummaryButtonPressed(boolean anotherGame)
+    {
+        if (anotherGame)
+        {
+            //TODO:launch another game, remeber about currentGame and player info...
+        }
+        else
+        {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+            MainMenuFragment mainMenuFragment = new MainMenuFragment();
+            transaction.replace(R.id.lowerContainer, mainMenuFragment);
+            //        transaction.addToBackStack(null);
+
+            transaction.commit();
+        }
+
     }
 }

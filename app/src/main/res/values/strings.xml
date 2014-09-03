@@ -23,4 +23,9 @@
     <string name="question">Question:</string>
     <string name="next">Next</string>
 
+    <string name="your_score">Your score: </string>
+    <string name="medal_earned">Medal earned: </string>
+    <string name="another_game">Another game!</string>
+    <string name="back_to_main_menu">back to Main Menu</string>
+
 </resources>

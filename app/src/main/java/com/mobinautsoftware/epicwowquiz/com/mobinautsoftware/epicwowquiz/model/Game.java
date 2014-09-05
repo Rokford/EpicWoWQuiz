@@ -23,10 +23,12 @@ public class Game
     public static Game startNewGame(String difficulty)
     {
         game = new Game(difficulty);
-
-
-
         return game;
+    }
+
+    public static void endCurrentGame()
+    {
+        game = null;
     }
 
     public static Game getCurrentGame()

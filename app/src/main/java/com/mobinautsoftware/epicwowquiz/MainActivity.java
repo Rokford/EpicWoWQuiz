@@ -247,9 +247,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         QuestionFragment questionFragment = QuestionFragment.newInstance(currentGame.getQuestionsForCurrentGame().get(currentGame.getQuestionCounter()));
 
-//        Log.e("getting question...", "q no:" + Integer.valueOf(currentGame.getScore()).toString());
-        Log.e("question counter", "question counter for this game:" + Integer.valueOf(currentGame.getQuestionCounter()).toString());
-
         transaction.replace(R.id.lowerContainer, questionFragment);
 
         transaction.commit();
@@ -332,7 +329,15 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     {
         if (anotherGame)
         {
-            //TODO:launch another game, remeber about currentGame and player info...
+            Game.endCurrentGame();
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+            TierChoiceFragment tierChoiceFragment = new TierChoiceFragment();
+            transaction.replace(R.id.lowerContainer, tierChoiceFragment);
+
+            transaction.commit();
         }
         else
         {

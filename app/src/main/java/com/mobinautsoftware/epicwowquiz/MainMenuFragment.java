@@ -30,13 +30,11 @@ public class MainMenuFragment extends Fragment
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     private static ArrayList<String> mainMenuItems;
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String faction;
 
     private ListView mainMenuListView;
 
@@ -52,12 +50,11 @@ public class MainMenuFragment extends Fragment
      * @return A new instance of fragment HeaderFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainMenuFragment newInstance(String param1, String param2)
+    public static MainMenuFragment newInstance(String faction)
     {
         MainMenuFragment fragment = new MainMenuFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM1, faction);
         fragment.setArguments(args);
         return fragment;
     }
@@ -73,26 +70,21 @@ public class MainMenuFragment extends Fragment
         super.onCreate(savedInstanceState);
         if (getArguments() != null)
         {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            faction = getArguments().getString(ARG_PARAM1);
         }
 
-        SharedPreferences prefs = App.getContext().getSharedPreferences(App.SHARED_PREFERENCES_NAME, getActivity().MODE_PRIVATE);
-
-        String faction = prefs.getString(App.SHARED_PREFERENCES_FACTION, "");
-        int tier1 = prefs.getInt(App.SHARED_PREFERENCES_TIER1, 0);
-        int tier2 = prefs.getInt(App.SHARED_PREFERENCES_TIER2, 0);
-        int tier3 = prefs.getInt(App.SHARED_PREFERENCES_TIER3, 0);
-        int tier4 = prefs.getInt(App.SHARED_PREFERENCES_TIER4, 0);
-
+//        SharedPreferences prefs = App.getContext().getSharedPreferences(App.SHARED_PREFERENCES_NAME, getActivity().MODE_PRIVATE);
+//
+//        String faction = prefs.getString(App.SHARED_PREFERENCES_FACTION, "");
+//        int tier1 = prefs.getInt(App.SHARED_PREFERENCES_TIER1, 0);
+//        int tier2 = prefs.getInt(App.SHARED_PREFERENCES_TIER2, 0);
+//        int tier3 = prefs.getInt(App.SHARED_PREFERENCES_TIER3, 0);
+//        int tier4 = prefs.getInt(App.SHARED_PREFERENCES_TIER4, 0);
+//
         mainMenuItems = new ArrayList<String>();
 
         if (faction.length() > 0)
         {
-            PlayerInfo playerInfo = new PlayerInfo(faction, tier1, tier2, tier3, tier4);
-
-            setPlayerInfo(playerInfo);
-
             mainMenuItems.add(getString(R.string.continue_game));
         }
 
@@ -187,7 +179,6 @@ public class MainMenuFragment extends Fragment
      */
     public interface OnMainMenuFragmentInteractionListener
     {
-        // TODO: Update argument type and name
         public void onMainMenuFragmentInteraction(PlayerInfo info);
 
         public void onNewGameStart();

@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Medium Text"
-                android:id="@+id/textView"
+                android:id="@+id/textUnderIconTextView"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="10dp"
                 android:layout_centerHorizontal="true"/>
@@ -168,7 +168,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/blue"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/insaneLL">
 
             <LinearLayout
                 android:layout_width="match_parent"

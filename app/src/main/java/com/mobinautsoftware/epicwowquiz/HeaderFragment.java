@@ -3,51 +3,37 @@ package com.mobinautsoftware.epicwowquiz;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link com.mobinautsoftware.epicwowquiz.HeaderFragment.OnHeaderFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link HeaderFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HeaderFragment extends Fragment
 {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private OnHeaderFragmentInteractionListener mListener;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HeaderFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HeaderFragment newInstance(String param1, String param2)
-    {
-        HeaderFragment fragment = new HeaderFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private ImageView portraitImageView;
+    private ImageView iconImageView;
+    private TextView textUnderIconTextView;
+
+    private ImageView easyMedalImageView;
+    private ImageView mediumMedalImageView;
+    private ImageView hardMedalImageView;
+    private ImageView insaneMedalImageView;
+
+    private TextView easyMedalTextView;
+    private TextView mediumMedalTextView;
+    private TextView hardMedalTextView;
+    private TextView insaneMedalTextView;
+
+    private LinearLayout insaneLinearLayout;
+
 
     public HeaderFragment()
     {
@@ -58,11 +44,6 @@ public class HeaderFragment extends Fragment
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null)
-        {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -79,6 +60,30 @@ public class HeaderFragment extends Fragment
         {
             mListener.onHeaderFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
+        super.onViewCreated(view, savedInstanceState);
+
+        portraitImageView = (ImageView) view.findViewById(R.id.portraitImageView);
+        iconImageView = (ImageView) view.findViewById(R.id.iconImageView);
+        easyMedalImageView = (ImageView) view.findViewById(R.id.easyMedalImageView);
+        mediumMedalImageView = (ImageView) view.findViewById(R.id.mediumMedalImageView);
+        hardMedalImageView = (ImageView) view.findViewById(R.id.hardMedalImageView);
+        insaneMedalImageView = (ImageView) view.findViewById(R.id.insaneMedalImageView);
+        easyMedalTextView = (TextView) view.findViewById(R.id.tier1TextView);
+        mediumMedalTextView = (TextView) view.findViewById(R.id.tier2TextView);
+        hardMedalTextView = (TextView) view.findViewById(R.id.tier3TextView);
+        insaneMedalTextView = (TextView) view.findViewById(R.id.tier4TextView);
+        textUnderIconTextView = (TextView) view.findViewById(R.id.textUnderIconTextView);
+        insaneLinearLayout = (LinearLayout) view.findViewById(R.id.insaneLL);
+    }
+
+    public void updateContent(PlayerInfo info)
+    {
+        //TODO: this shit
     }
 
     @Override

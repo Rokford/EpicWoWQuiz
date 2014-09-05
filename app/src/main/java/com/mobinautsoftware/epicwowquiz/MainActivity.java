@@ -47,14 +47,49 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         getQuestionsFromAssets();
 
+        updatePlayerInfoFromPreferences();
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
-        MainMenuFragment mainMenuFragment = new MainMenuFragment();
+        MainMenuFragment mainMenuFragment = MainMenuFragment.newInstance(playerInfo.getFaction());
         transaction.replace(R.id.lowerContainer, mainMenuFragment);
         //        transaction.addToBackStack(null);
 
         transaction.commit();
+    }
+
+    @Override
+    protected void onResume()
+    {
+        updatePlayerInfoFromPreferences();
+        super.onResume();
+    }
+
+    private void updatePlayerInfoFromPreferences()
+    {
+        SharedPreferences prefs = App.getContext().getSharedPreferences(App.SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+
+        String faction = prefs.getString(App.SHARED_PREFERENCES_FACTION, "");
+        int tier1 = prefs.getInt(App.SHARED_PREFERENCES_TIER1, 0);
+        int tier2 = prefs.getInt(App.SHARED_PREFERENCES_TIER2, 0);
+        int tier3 = prefs.getInt(App.SHARED_PREFERENCES_TIER3, 0);
+        int tier4 = prefs.getInt(App.SHARED_PREFERENCES_TIER4, 0);
+
+        if (faction.length() > 0)
+        {
+            PlayerInfo playerInfo = new PlayerInfo(faction, tier1, tier2, tier3, tier4);
+
+            onMainMenuFragmentInteraction(playerInfo);
+        }
+
+    }
+
+    private void updateHeaderFragment()
+    {
+        HeaderFragment headerFragment = (HeaderFragment) getSupportFragmentManager().findFragmentById(R.id.headerFragment);
+
+        headerFragment.updateContent(playerInfo);
     }
 
 
@@ -344,7 +379,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
-            MainMenuFragment mainMenuFragment = new MainMenuFragment();
+            MainMenuFragment mainMenuFragment = MainMenuFragment.newInstance(playerInfo.getFaction());
             transaction.replace(R.id.lowerContainer, mainMenuFragment);
             //        transaction.addToBackStack(null);
 

@@ -34,27 +34,18 @@ public class MainMenuFragment extends Fragment
     private static ArrayList<String> mainMenuItems;
 
     // TODO: Rename and change types of parameters
-    private String faction;
+    private boolean withContinueButton;
 
     private ListView mainMenuListView;
 
 
     private OnMainMenuFragmentInteractionListener mListener;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HeaderFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MainMenuFragment newInstance(String faction)
+    public static MainMenuFragment newInstance(boolean withCountinueButton)
     {
         MainMenuFragment fragment = new MainMenuFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, faction);
+        args.putBoolean(ARG_PARAM1, withCountinueButton);
         fragment.setArguments(args);
         return fragment;
     }
@@ -70,20 +61,12 @@ public class MainMenuFragment extends Fragment
         super.onCreate(savedInstanceState);
         if (getArguments() != null)
         {
-            faction = getArguments().getString(ARG_PARAM1);
+            withContinueButton = getArguments().getBoolean(ARG_PARAM1);
         }
-
-//        SharedPreferences prefs = App.getContext().getSharedPreferences(App.SHARED_PREFERENCES_NAME, getActivity().MODE_PRIVATE);
-//
-//        String faction = prefs.getString(App.SHARED_PREFERENCES_FACTION, "");
-//        int tier1 = prefs.getInt(App.SHARED_PREFERENCES_TIER1, 0);
-//        int tier2 = prefs.getInt(App.SHARED_PREFERENCES_TIER2, 0);
-//        int tier3 = prefs.getInt(App.SHARED_PREFERENCES_TIER3, 0);
-//        int tier4 = prefs.getInt(App.SHARED_PREFERENCES_TIER4, 0);
 //
         mainMenuItems = new ArrayList<String>();
 
-        if (faction.length() > 0)
+        if (withContinueButton)
         {
             mainMenuItems.add(getString(R.string.continue_game));
         }

@@ -28,4 +28,9 @@
     <string name="another_game">Another game!</string>
     <string name="back_to_main_menu">back to Main Menu</string>
 
+    <string name="alliance">Alliance</string>
+    <string name="horde">Horde</string>
+
+    <string name="no_rank">No rank</string>
+
 </resources>

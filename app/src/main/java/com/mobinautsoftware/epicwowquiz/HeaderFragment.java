@@ -67,6 +67,8 @@ public class HeaderFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
 
+        textUnderIconTextView = (TextView) view.findViewById(R.id.textUnderIconTextView);
+        insaneLinearLayout = (LinearLayout) view.findViewById(R.id.insaneLL);
         portraitImageView = (ImageView) view.findViewById(R.id.portraitImageView);
         iconImageView = (ImageView) view.findViewById(R.id.iconImageView);
         easyMedalImageView = (ImageView) view.findViewById(R.id.easyMedalImageView);
@@ -77,13 +79,38 @@ public class HeaderFragment extends Fragment
         mediumMedalTextView = (TextView) view.findViewById(R.id.tier2TextView);
         hardMedalTextView = (TextView) view.findViewById(R.id.tier3TextView);
         insaneMedalTextView = (TextView) view.findViewById(R.id.tier4TextView);
-        textUnderIconTextView = (TextView) view.findViewById(R.id.textUnderIconTextView);
-        insaneLinearLayout = (LinearLayout) view.findViewById(R.id.insaneLL);
+
+        updateContent(mListener.headerViewCreated());
     }
 
     public void updateContent(PlayerInfo info)
     {
-        //TODO: this shit
+        if (info != null)
+        {
+            if (info.getFaction().equals(App.FACTION_ALLIANCE))
+                textUnderIconTextView.setText(App.getContext().getString(R.string.alliance));
+            else if (info.getFaction().equals(App.FACTION_HORDE))
+                textUnderIconTextView.setText(App.getContext().getString(R.string.horde));
+            else textUnderIconTextView.setText("");
+
+            if (!mListener.shouldShowExtraTier())
+            {
+                insaneLinearLayout.setVisibility(View.GONE);
+            }
+            else
+            {
+                insaneMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier4()));
+                insaneMedalTextView.setText(PlayerInfo.getMedalString(info.getTier4()));
+            }
+
+            easyMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier1()));
+            mediumMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier2()));
+            hardMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier3()));
+
+            easyMedalTextView.setText(PlayerInfo.getMedalString(info.getTier1()));
+            mediumMedalTextView.setText(PlayerInfo.getMedalString(info.getTier2()));
+            hardMedalTextView.setText(PlayerInfo.getMedalString(info.getTier3()));
+        }
     }
 
     @Override
@@ -121,6 +148,10 @@ public class HeaderFragment extends Fragment
     {
         // TODO: Update argument type and name
         public void onHeaderFragmentInteraction(Uri uri);
+
+        public boolean shouldShowExtraTier();
+
+        public PlayerInfo headerViewCreated();
     }
 
 }

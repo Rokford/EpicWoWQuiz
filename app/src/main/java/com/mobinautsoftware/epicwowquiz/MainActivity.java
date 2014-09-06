@@ -43,18 +43,27 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        updatePlayerInfoFromPreferences();
         setContentView(R.layout.activity_main);
 
         getQuestionsFromAssets();
 
-        updatePlayerInfoFromPreferences();
-
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
-        MainMenuFragment mainMenuFragment = MainMenuFragment.newInstance(playerInfo.getFaction());
+        MainMenuFragment mainMenuFragment;
+
+        if (playerInfo != null)
+        {
+            mainMenuFragment = MainMenuFragment.newInstance(true);
+        }
+        else
+        {
+            mainMenuFragment = MainMenuFragment.newInstance(false);
+        }
+
         transaction.replace(R.id.lowerContainer, mainMenuFragment);
-        //        transaction.addToBackStack(null);
 
         transaction.commit();
     }
@@ -62,7 +71,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     protected void onResume()
     {
-        updatePlayerInfoFromPreferences();
         super.onResume();
     }
 
@@ -82,7 +90,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
             onMainMenuFragmentInteraction(playerInfo);
         }
-
     }
 
     private void updateHeaderFragment()
@@ -156,6 +163,8 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         savePlayerInfo();
 
+        updateHeaderFragment();
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
@@ -182,6 +191,12 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     public boolean shouldShowExtraTier()
     {
         return (playerInfo.getTier1() > 2 && playerInfo.getTier2() > 2 && playerInfo.getTier3() > 2 && playerInfo.getTier4() > 2);
+    }
+
+    @Override
+    public PlayerInfo headerViewCreated()
+    {
+        return playerInfo;
     }
 
     public PlayerInfo getPlayerInfo()
@@ -259,6 +274,8 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
             playerInfo.setTier(currentGame.getDifficulty(), currentGame.getScore());
 
             savePlayerInfo();
+
+            updateHeaderFragment();
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
@@ -379,9 +396,8 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
-            MainMenuFragment mainMenuFragment = MainMenuFragment.newInstance(playerInfo.getFaction());
+            MainMenuFragment mainMenuFragment = MainMenuFragment.newInstance(true);
             transaction.replace(R.id.lowerContainer, mainMenuFragment);
-            //        transaction.addToBackStack(null);
 
             transaction.commit();
         }

@@ -9,13 +9,11 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/blue"
         android:layout_weight="1">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/red"
             android:layout_weight="1">
 
             <ImageView
@@ -30,7 +28,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/blue"
             android:layout_weight="1">
 
 
@@ -46,8 +43,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/textView"
+                android:text="@string/no_rank"
+                android:id="@+id/textUnderIconTextView"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="10dp"
                 android:layout_centerHorizontal="true"/>
@@ -66,14 +63,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/silver"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/silver"
                 android:orientation="vertical">
 
                 <TextView
@@ -81,13 +76,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Medium Text"
+                    android:text="@string/no_medal"
                     android:id="@+id/tier1TextView"
                     android:gravity="center"/>
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:id="@+id/easyMedalImageView"
@@ -100,14 +95,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/blue"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/silver"
                 android:orientation="vertical">
 
                 <TextView
@@ -115,13 +108,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Medium Text"
+                    android:text="@string/no_medal"
                     android:id="@+id/tier2TextView"
                     android:gravity="center"/>
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:id="@+id/mediumMedalImageView"
@@ -133,14 +126,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/silver"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/silver"
                 android:orientation="vertical">
 
                 <TextView
@@ -148,14 +139,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Medium Text"
+                    android:text="@string/no_medal"
                     android:id="@+id/tier3TextView"
                     android:autoText="false"
                     android:gravity="center"/>
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:id="@+id/hardMedalImageView"
@@ -167,14 +158,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/blue"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/insaneLL">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/silver"
                 android:orientation="vertical">
 
                 <TextView
@@ -182,13 +172,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Medium Text"
+                    android:text="@string/no_medal"
                     android:id="@+id/tier4TextView"
                     android:gravity="center"/>
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:id="@+id/insaneMedalImageView"

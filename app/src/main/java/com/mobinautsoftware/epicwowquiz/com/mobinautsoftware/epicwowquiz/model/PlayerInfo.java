@@ -1,5 +1,6 @@
 package com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model;
 
+import com.mobinautsoftware.epicwowquiz.App;
 import com.mobinautsoftware.epicwowquiz.R;
 
 /**
@@ -60,14 +61,10 @@ public class PlayerInfo
 
     public int getTier(String difficulty)
     {
-        if (difficulty.equals(Question.DIFFICULTY_EASY))
-            return tier1;
-        else if (difficulty.equals(Question.DIFFICULTY_MEDIUM))
-            return tier2;
-        else if (difficulty.equals(Question.DIFFICULTY_HARD))
-            return tier3;
-        else
-            return tier4;
+        if (difficulty.equals(Question.DIFFICULTY_EASY)) return tier1;
+        else if (difficulty.equals(Question.DIFFICULTY_MEDIUM)) return tier2;
+        else if (difficulty.equals(Question.DIFFICULTY_HARD)) return tier3;
+        else return tier4;
     }
 
     public void setTier(String difficulty, int score)
@@ -76,76 +73,64 @@ public class PlayerInfo
         {
             if (score == 10)
             {
-                if (tier1 < 3)
-                    this.tier1 = 3;
+                if (tier1 < 3) this.tier1 = 3;
 
             }
             else if (score > 8)
             {
-                if (tier1 < 2)
-                    this.tier1 = 2;
+                if (tier1 < 2) this.tier1 = 2;
             }
             else if (score > 6)
             {
-                if (tier1 < 1)
-                    this.tier1 = 1;
+                if (tier1 < 1) this.tier1 = 1;
             }
         }
         if (difficulty.equals(Question.DIFFICULTY_MEDIUM))
         {
             if (score == 10)
             {
-                if (tier2 < 3)
-                    this.tier2 = 3;
+                if (tier2 < 3) this.tier2 = 3;
 
             }
             else if (score > 8)
             {
-                if (tier2 < 2)
-                    this.tier2 = 2;
+                if (tier2 < 2) this.tier2 = 2;
             }
             else if (score > 6)
             {
-                if (tier2 < 1)
-                    this.tier2 = 1;
+                if (tier2 < 1) this.tier2 = 1;
             }
         }
         if (difficulty.equals(Question.DIFFICULTY_HARD))
         {
             if (score == 10)
             {
-                if (tier3 < 3)
-                    this.tier3 = 3;
+                if (tier3 < 3) this.tier3 = 3;
 
             }
             else if (score > 8)
             {
-                if (tier3 < 2)
-                    this.tier3 = 2;
+                if (tier3 < 2) this.tier3 = 2;
             }
             else if (score > 6)
             {
-                if (tier3 < 1)
-                    this.tier3 = 1;
+                if (tier3 < 1) this.tier3 = 1;
             }
         }
         if (difficulty.equals(Question.DIFFICULTY_INSANE))
         {
             if (score == 10)
             {
-                if (tier4 < 3)
-                    this.tier4 = 3;
+                if (tier4 < 3) this.tier4 = 3;
 
             }
             else if (score > 8)
             {
-                if (tier4 < 2)
-                    this.tier4 = 2;
+                if (tier4 < 2) this.tier4 = 2;
             }
             else if (score > 6)
             {
-                if (tier4 < 1)
-                    this.tier4 = 1;
+                if (tier4 < 1) this.tier4 = 1;
             }
         }
     }
@@ -183,4 +168,77 @@ public class PlayerInfo
                 return R.string.no_medal;
         }
     }
+
+    public int getRankString()
+    {
+        if (this.faction != null && !this.faction.equals(""))
+        {
+            if (tier1 > 2 && tier2 > 2 && tier3 > 2 && tier4 > 2)
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank4alliance;
+                else return R.string.rank4horde;
+            }
+            if (tier1 > 2 && tier2 > 2 && tier3 > 2)
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank3alliance;
+                else return R.string.rank3horde;
+            }
+            if (tier1 > 1 && tier2 > 1 && tier3 > 1)
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank2alliance;
+                else return R.string.rank2horde;
+            }
+            if (tier1 > 0 && tier2 > 0 && tier3 > 0)
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank1alliance;
+                else return R.string.rank1horde;
+            }
+            else
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.no_rankalliance;
+                else return R.string.no_rankhorde;
+            }
+        }
+        else
+        {
+            return R.string.no_rank;
+        }
+    }
+
+    public int getRankImage()
+    {
+        if (this.faction != null && !this.faction.equals(""))
+        {
+            if (tier1 > 2 && tier2 > 2 && tier3 > 2 && tier4 > 2)
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank4_alliance;
+                else return R.drawable.rank4_horde;
+            }
+            if (tier1 > 2 && tier2 > 2 && tier3 > 2)
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank3_alliance;
+                else return R.drawable.rank3_horde;
+            }
+            if (tier1 > 1 && tier2 > 1 && tier3 > 1)
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank2_alliance;
+                else return R.drawable.rank_2horde;
+            }
+            if (tier1 > 0 && tier2 > 0 && tier3 > 0)
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank1_alliance;
+                else return R.drawable.rank1_horde;
+            }
+            else
+            {
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.no_rank_alliance;
+                else return R.drawable.no_rank_horde;
+            }
+        }
+        else
+        {
+            return R.drawable.no_rank;
+        }
+    }
 }
+

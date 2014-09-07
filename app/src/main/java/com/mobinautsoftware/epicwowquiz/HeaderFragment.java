@@ -34,6 +34,7 @@ public class HeaderFragment extends Fragment
 
     private LinearLayout insaneLinearLayout;
 
+    private LinearLayout outerLinearLayout;
 
     public HeaderFragment()
     {
@@ -80,6 +81,8 @@ public class HeaderFragment extends Fragment
         hardMedalTextView = (TextView) view.findViewById(R.id.tier3TextView);
         insaneMedalTextView = (TextView) view.findViewById(R.id.tier4TextView);
 
+        outerLinearLayout = (LinearLayout) view.findViewById(R.id.outerLinearLayout);
+
         updateContent(mListener.headerViewCreated());
     }
 
@@ -87,11 +90,7 @@ public class HeaderFragment extends Fragment
     {
         if (info != null)
         {
-            if (info.getFaction().equals(App.FACTION_ALLIANCE))
-                textUnderIconTextView.setText(App.getContext().getString(R.string.alliance));
-            else if (info.getFaction().equals(App.FACTION_HORDE))
-                textUnderIconTextView.setText(App.getContext().getString(R.string.horde));
-            else textUnderIconTextView.setText("");
+            textUnderIconTextView.setText(info.getRankString());
 
             if (!mListener.shouldShowExtraTier())
             {
@@ -100,16 +99,34 @@ public class HeaderFragment extends Fragment
             else
             {
                 insaneMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier4()));
-                insaneMedalTextView.setText(PlayerInfo.getMedalString(info.getTier4()));
+                insaneMedalTextView.setText(getResources().getString(R.string.insane));
             }
 
             easyMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier1()));
             mediumMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier2()));
             hardMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier3()));
 
-            easyMedalTextView.setText(PlayerInfo.getMedalString(info.getTier1()));
-            mediumMedalTextView.setText(PlayerInfo.getMedalString(info.getTier2()));
-            hardMedalTextView.setText(PlayerInfo.getMedalString(info.getTier3()));
+            easyMedalTextView.setText(getResources().getString(R.string.easy));
+            mediumMedalTextView.setText(getResources().getString(R.string.medium));
+            hardMedalTextView.setText(getResources().getString(R.string.hard));
+
+            if (info.getFaction() != null && !info.getFaction().equals(""))
+            {
+                if (info.getFaction().equals(App.FACTION_ALLIANCE))
+                {
+                    portraitImageView.setImageResource(R.drawable.alliance);
+                    outerLinearLayout.setBackgroundColor(getResources().getColor(R.color.blue));
+                }
+                else
+                {
+                    portraitImageView.setImageResource(R.drawable.horde);
+                    outerLinearLayout.setBackgroundColor(getResources().getColor(R.color.red));
+                }
+            }
+            else
+                portraitImageView.setImageResource(R.drawable.no_faction);
+
+            iconImageView.setImageResource(info.getRankImage());
         }
     }
 

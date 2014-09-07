@@ -31,6 +31,19 @@
     <string name="alliance">Alliance</string>
     <string name="horde">Horde</string>
 
-    <string name="no_rank">No rank</string>
+    <string name="no_rank">Unranked</string>
+
+    <string name="no_rankalliance">Private</string>
+    <string name="no_rankhorde">Scout</string>
+
+    <string name="rank1alliance">Sergeant</string>
+    <string name="rank2alliance">Knight</string>
+    <string name="rank3alliance">Lieutenant Commander</string>
+    <string name="rank4alliance">Grand Marshal</string>
+
+    <string name="rank1horde">Sergeant</string>
+    <string name="rank2horde">Stone Guard</string>
+    <string name="rank3horde">Champion</string>
+    <string name="rank4horde">High Warlord</string>
 
 </resources>

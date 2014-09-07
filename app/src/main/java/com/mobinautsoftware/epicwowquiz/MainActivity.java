@@ -137,13 +137,11 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     public void onNewGameStart()
     {
-
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
         FactionChoiceFragment factionChoiceFragment = new FactionChoiceFragment();
         transaction.replace(R.id.lowerContainer, factionChoiceFragment);
-        //        transaction.addToBackStack(null);
 
         transaction.commit();
     }

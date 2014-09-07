@@ -95,7 +95,7 @@ public class FactionChoiceFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                onFactionChosen(App.FACTION_HORDE);
+                onFactionChosen(App.FACTION_ALLIANCE);
             }
         });
 
@@ -104,7 +104,7 @@ public class FactionChoiceFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                onFactionChosen(App.FACTION_ALLIANCE);
+                onFactionChosen(App.FACTION_HORDE);
             }
         });
 

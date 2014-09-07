@@ -40,6 +40,8 @@ public class QuestionFragment extends Fragment
 
     private Answer answer;
 
+    private CountDownTimer timer;
+
     private OnAnswerSelectedListener mListener;
 
     private ProgressBar progressBar;
@@ -118,7 +120,7 @@ public class QuestionFragment extends Fragment
         int callInterval = 100;
 
         /** CountDownTimer */
-        new CountDownTimer(TIME_LIMIT, callInterval)
+        timer = new CountDownTimer(TIME_LIMIT, callInterval)
         {
 
             public void onTick(long millisUntilFinished)
@@ -141,6 +143,15 @@ public class QuestionFragment extends Fragment
 
 
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onPause()
+    {
+        if (timer != null)
+            timer.cancel();
+
+        super.onPause();
     }
 
     private void checkAnswer()

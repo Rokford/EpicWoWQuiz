@@ -63,7 +63,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
             mainMenuFragment = MainMenuFragment.newInstance(false);
         }
 
-        transaction.replace(R.id.lowerContainer, mainMenuFragment);
+        transaction.add(R.id.lowerContainer, mainMenuFragment, "mainMenuFragment");
 
         transaction.commit();
     }
@@ -71,6 +71,16 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     protected void onResume()
     {
+        if (getSupportFragmentManager().findFragmentByTag("mainMenuFragment") == null)
+        {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+            MainMenuFragment mainMenuFragment = MainMenuFragment.newInstance(true);
+            transaction.replace(R.id.lowerContainer, mainMenuFragment);
+
+            transaction.commit();
+        }
         super.onResume();
     }
 

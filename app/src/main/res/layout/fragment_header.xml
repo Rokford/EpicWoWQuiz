@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/no_rank"
+            android:textColor="@android:color/white"
             android:id="@+id/textUnderIconTextView"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"/>
@@ -79,13 +80,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/no_medal"
+                    android:text="@string/easy"
+                    android:textColor="@android:color/white"
                     android:id="@+id/tier1TextView"
                     android:gravity="center"/>
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:id="@+id/easyMedalImageView"
@@ -111,13 +113,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/no_medal"
+                    android:text="@string/medium"
+                    android:textColor="@android:color/white"
                     android:id="@+id/tier2TextView"
                     android:gravity="center"/>
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:id="@+id/mediumMedalImageView"
@@ -142,14 +145,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/no_medal"
+                    android:text="@string/hard"
+                    android:textColor="@android:color/white"
                     android:id="@+id/tier3TextView"
                     android:autoText="false"
                     android:gravity="center"/>
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:id="@+id/hardMedalImageView"
@@ -174,14 +178,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@android:color/white"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/no_medal"
+                    android:text="@string/insane"
                     android:id="@+id/tier4TextView"
                     android:gravity="center"/>
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:id="@+id/insaneMedalImageView"

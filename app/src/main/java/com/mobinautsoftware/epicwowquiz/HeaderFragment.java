@@ -88,15 +88,13 @@ public class HeaderFragment extends Fragment
 
     public void updateContent(PlayerInfo info)
     {
+        insaneLinearLayout.setVisibility(View.GONE);
+
         if (info != null)
         {
             textUnderIconTextView.setText(info.getRankString());
 
-            if (!mListener.shouldShowExtraTier())
-            {
-                insaneLinearLayout.setVisibility(View.GONE);
-            }
-            else
+            if (mListener.shouldShowExtraTier())
             {
                 insaneMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier4()));
                 insaneMedalTextView.setText(getResources().getString(R.string.insane));

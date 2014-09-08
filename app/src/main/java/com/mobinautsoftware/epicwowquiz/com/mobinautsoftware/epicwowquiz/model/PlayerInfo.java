@@ -67,6 +67,18 @@ public class PlayerInfo
         else return tier4;
     }
 
+    public int getTierForScore(int score)
+    {
+        if (score > 9)
+            return 3;
+        if (score > 7)
+            return 2;
+        if (score > 5)
+            return 1;
+        else
+            return 0;
+    }
+
     public void setTier(String difficulty, int score)
     {
         if (difficulty.equals(Question.DIFFICULTY_EASY))

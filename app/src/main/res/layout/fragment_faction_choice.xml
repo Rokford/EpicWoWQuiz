@@ -16,6 +16,16 @@
         android:background="@color/blue"
         android:layout_gravity="center_horizontal|top">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:clickable="false"
+            android:text="@string/alliance"/>
+
 
     </RelativeLayout>
 
@@ -28,5 +38,16 @@
         android:background="@color/red"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white"
+            android:clickable="false"
+
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="@string/horde"/>
     </RelativeLayout>
 </LinearLayout>

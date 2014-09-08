@@ -288,7 +288,8 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
-            int tempTier = playerInfo.getTier(currentGame.getDifficulty());
+//            int tempTier = playerInfo.getTier(currentGame.getDifficulty());
+            int tempTier = playerInfo.getTierForScore(currentGame.getScore());
 
             SummaryFragment summaryFragment = SummaryFragment.newInstance(currentGame.getScore(), PlayerInfo.getMedalResourceForMedal(tempTier), PlayerInfo.getMedalString(tempTier));
 

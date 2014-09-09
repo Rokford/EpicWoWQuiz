@@ -71,9 +71,9 @@ public class PlayerInfo
     {
         if (score > 9)
             return 3;
-        if (score > 7)
+        if (score > 8)
             return 2;
-        if (score > 5)
+        if (score > 6)
             return 1;
         else
             return 0;

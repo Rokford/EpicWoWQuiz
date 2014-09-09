@@ -307,6 +307,8 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
             SummaryFragment summaryFragment = SummaryFragment.newInstance(currentGame.getScore(), PlayerInfo.getMedalResourceForMedal(tempTier), PlayerInfo.getMedalString(tempTier));
 
+            Game.endCurrentGame();
+
             transaction.replace(R.id.lowerContainer, summaryFragment, "summaryFragment");
             transaction.addToBackStack(null);
 
@@ -404,10 +406,9 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     public void onSummaryButtonPressed(boolean anotherGame)
     {
+
         if (anotherGame)
         {
-            Game.endCurrentGame();
-
             getSupportFragmentManager().popBackStackImmediate("lastOne", 0);
         }
         else

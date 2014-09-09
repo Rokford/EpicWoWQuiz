@@ -111,6 +111,7 @@ public class FactionChoiceFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
     }
 
+
     @Override
     public void onAttach(Activity activity)
     {

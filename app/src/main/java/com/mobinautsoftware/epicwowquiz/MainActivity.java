@@ -3,6 +3,7 @@ package com.mobinautsoftware.epicwowquiz;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -64,22 +65,34 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         }
 
         transaction.add(R.id.lowerContainer, mainMenuFragment, "mainMenuFragment");
-
         transaction.commit();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        // Catch back action and pops from backstack
+        // (if you called previously to addToBackStack() in your transaction)
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0)
+        {
+            if (getSupportFragmentManager().findFragmentByTag("questionFragment") != null || getSupportFragmentManager().findFragmentByTag("summaryFragment") != null)
+            {
+                getSupportFragmentManager().popBackStackImmediate("lastOne", 0);
+            }
+            else
+                getSupportFragmentManager().popBackStack();
+        }
+        // Default action on back pressed
+        else
+            super.onBackPressed();
     }
 
     @Override
     protected void onResume()
     {
-        if (getSupportFragmentManager().findFragmentByTag("mainMenuFragment") == null)
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0)
         {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
-
-            MainMenuFragment mainMenuFragment = MainMenuFragment.newInstance(true);
-            transaction.replace(R.id.lowerContainer, mainMenuFragment);
-
-            transaction.commit();
+            getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
         super.onResume();
     }
@@ -142,6 +155,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         FactionChoiceFragment factionChoiceFragment = new FactionChoiceFragment();
         transaction.replace(R.id.lowerContainer, factionChoiceFragment);
+        transaction.addToBackStack(null);
 
         transaction.commit();
     }
@@ -178,7 +192,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         TierChoiceFragment tierChoiceFragment = new TierChoiceFragment();
         transaction.replace(R.id.lowerContainer, tierChoiceFragment);
-        //        transaction.addToBackStack(null);
+        transaction.addToBackStack("lastOne");
 
         transaction.commit();
     }
@@ -288,12 +302,13 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
-//            int tempTier = playerInfo.getTier(currentGame.getDifficulty());
+            //            int tempTier = playerInfo.getTier(currentGame.getDifficulty());
             int tempTier = playerInfo.getTierForScore(currentGame.getScore());
 
             SummaryFragment summaryFragment = SummaryFragment.newInstance(currentGame.getScore(), PlayerInfo.getMedalResourceForMedal(tempTier), PlayerInfo.getMedalString(tempTier));
 
-            transaction.replace(R.id.lowerContainer, summaryFragment);
+            transaction.replace(R.id.lowerContainer, summaryFragment, "summaryFragment");
+            transaction.addToBackStack(null);
 
             transaction.commit();
         }
@@ -308,7 +323,8 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         QuestionFragment questionFragment = QuestionFragment.newInstance(currentGame.getQuestionsForCurrentGame().get(currentGame.getQuestionCounter()));
 
-        transaction.replace(R.id.lowerContainer, questionFragment);
+        transaction.replace(R.id.lowerContainer, questionFragment, "questionFragment");
+        transaction.addToBackStack(null);
 
         transaction.commit();
     }
@@ -392,23 +408,11 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         {
             Game.endCurrentGame();
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
-
-            TierChoiceFragment tierChoiceFragment = new TierChoiceFragment();
-            transaction.replace(R.id.lowerContainer, tierChoiceFragment);
-
-            transaction.commit();
+            getSupportFragmentManager().popBackStackImmediate("lastOne", 0);
         }
         else
         {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
-
-            MainMenuFragment mainMenuFragment = MainMenuFragment.newInstance(true);
-            transaction.replace(R.id.lowerContainer, mainMenuFragment);
-
-            transaction.commit();
+            getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
 
     }

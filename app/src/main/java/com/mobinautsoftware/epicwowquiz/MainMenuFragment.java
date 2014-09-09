@@ -98,6 +98,10 @@ public class MainMenuFragment extends Fragment
                 {
                     showFactionChoice();
                 }
+                else if (parent.getAdapter().getItem(position).equals(getResources().getString(R.string.continue_game)))
+                {
+                    onContinueGame();
+                }
             }
         });
 
@@ -112,20 +116,19 @@ public class MainMenuFragment extends Fragment
     }
 
 
+    public void onContinueGame()
+    {
+        if (mListener != null)
+        {
+            mListener.onContinueGame();
+        }
+    }
+
     public void showFactionChoice()
     {
         if (mListener != null)
         {
             mListener.onNewGameStart();
-        }
-    }
-
-
-    public void setPlayerInfo(PlayerInfo info)
-    {
-        if (mListener != null)
-        {
-            mListener.onMainMenuFragmentInteraction(info);
         }
     }
 
@@ -162,8 +165,6 @@ public class MainMenuFragment extends Fragment
      */
     public interface OnMainMenuFragmentInteractionListener
     {
-        public void onMainMenuFragmentInteraction(PlayerInfo info);
-
         public void onNewGameStart();
 
         public void onHelp();

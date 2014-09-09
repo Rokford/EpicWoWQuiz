@@ -111,7 +111,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         {
             PlayerInfo playerInfo = new PlayerInfo(faction, tier1, tier2, tier3, tier4);
 
-            onMainMenuFragmentInteraction(playerInfo);
+            this.playerInfo = playerInfo;
         }
     }
 
@@ -142,12 +142,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     }
 
     @Override
-    public void onMainMenuFragmentInteraction(PlayerInfo playerInfo)
-    {
-        this.playerInfo = playerInfo;
-    }
-
-    @Override
     public void onNewGameStart()
     {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -170,6 +164,15 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     public void onContinueGame()
     {
 
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+        TierChoiceFragment tierChoiceFragment = new TierChoiceFragment();
+        transaction.replace(R.id.lowerContainer, tierChoiceFragment);
+        transaction.addToBackStack("lastOne");
+
+        transaction.commit();
     }
 
     @Override

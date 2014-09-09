@@ -157,7 +157,14 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     public void onHelp()
     {
-        //TODO: help fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+        HelpFragment helpFragment = new HelpFragment();
+        transaction.replace(R.id.lowerContainer, helpFragment);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
     }
 
     @Override

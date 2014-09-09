@@ -46,4 +46,16 @@
     <string name="rank3horde">Champion</string>
     <string name="rank4horde">High Warlord</string>
 
+    <string name="help1">Welcome to unofficial World of Warcraft Quiz, the Epic Wow Quiz!</string>
+
+    <string name="help2">How to play?</string>
+
+    <string name="help3">First, you have to choose your faction.</string>
+
+    <string name="help4">You can test your Warcraft knowledge by playing Easy, Medium or Hard tier.\n\nEach tier contains ten questions. Depending on your score, you can be awarded with Bronze, Silver or Golden medal.</string>
+
+    <string name="help5">Each faction also has its own progression path.\nThe better medals you manage to get, the higher rank you will be rewarded with!\nYou start as Private as a Alliance and Scout as a Horde.</string>
+
+    <string name="help6">There is a rumor that something special can happen if you manage to master the quiz by getting the Gold medal in all three tiers... Good luck!</string>
+
 </resources>

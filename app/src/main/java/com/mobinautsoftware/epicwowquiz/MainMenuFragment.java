@@ -102,6 +102,10 @@ public class MainMenuFragment extends Fragment
                 {
                     onContinueGame();
                 }
+                else if (parent.getAdapter().getItem(position).equals(getResources().getString(R.string.help)))
+                {
+                    onHelp();
+                }
             }
         });
 
@@ -129,6 +133,14 @@ public class MainMenuFragment extends Fragment
         if (mListener != null)
         {
             mListener.onNewGameStart();
+        }
+    }
+
+    public void onHelp()
+    {
+        if (mListener != null)
+        {
+            mListener.onHelp();
         }
     }
 

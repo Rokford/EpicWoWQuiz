@@ -30,7 +30,7 @@ import static com.mobinautsoftware.epicwowquiz.QuestionFragment.OnAnswerSelected
 import static com.mobinautsoftware.epicwowquiz.TierChoiceFragment.OnTierChosenListener;
 
 
-public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, OnTierChosenListener, OnAnswerSelectedListener, SummaryFragment.OnSummaryButtonPressedListener
+public class MainActivity extends ActionBarActivity implements OnMainMenuFragmentInteractionListener, OnHeaderFragmentInteractionListener, OnFactionChosenListener, OnTierChosenListener, OnAnswerSelectedListener, SummaryFragment.OnSummaryButtonPressedListener, DialogNewGameFragment.OnDialogOptionChosenListener
 {
     private PlayerInfo playerInfo;
     private Game currentGame;
@@ -170,8 +170,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     public void onContinueGame()
     {
-
-
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
@@ -191,20 +189,36 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     @Override
     public void onFactionChosen(String faction)
     {
-        playerInfo = new PlayerInfo(faction, 0, 0, 0, 0);
+        if (playerInfo != null)
+        {
+            DialogNewGameFragment dialogFragment = new DialogNewGameFragment();
+            dialogFragment.show(getSupportFragmentManager(), null);
+            dialogFragment.setFaction(faction);
+        }
+        else
+            onDialogOptionChosen(faction, true);
+    }
 
-        savePlayerInfo();
+    @Override
+    public void onDialogOptionChosen(String faction, boolean shouldProceed)
+    {
+        if (shouldProceed)
+        {
+            playerInfo = new PlayerInfo(faction, 0, 0, 0, 0);
 
-        updateHeaderFragment();
+            savePlayerInfo();
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+            updateHeaderFragment();
 
-        TierChoiceFragment tierChoiceFragment = new TierChoiceFragment();
-        transaction.replace(R.id.lowerContainer, tierChoiceFragment);
-        transaction.addToBackStack("lastOne");
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
-        transaction.commit();
+            TierChoiceFragment tierChoiceFragment = new TierChoiceFragment();
+            transaction.replace(R.id.lowerContainer, tierChoiceFragment);
+            transaction.addToBackStack("lastOne");
+
+            transaction.commit();
+        }
     }
 
     private void savePlayerInfo()
@@ -427,4 +441,6 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         }
 
     }
+
+
 }

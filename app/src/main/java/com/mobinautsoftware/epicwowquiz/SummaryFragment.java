@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
+
 import org.w3c.dom.Text;
 
 
@@ -85,6 +87,17 @@ public class SummaryFragment extends Fragment
         Button anotherGameButton = (Button) view.findViewById(R.id.anotherGameButton);
         Button backToMenuButton = (Button) view.findViewById(R.id.backButton);
 
+        if (mListener.getPlayerInfo().getFaction().equals(App.FACTION_ALLIANCE))
+        {
+            anotherGameButton.setBackgroundColor(getResources().getColor(R.color.blue));
+            backToMenuButton.setBackgroundColor(getResources().getColor(R.color.blue));
+        }
+        else
+        {
+            anotherGameButton.setBackgroundColor(getResources().getColor(R.color.red));
+            backToMenuButton.setBackgroundColor(getResources().getColor(R.color.red));
+        }
+
         scoreTextView.setText(Integer.valueOf(score).toString());
         medalTextView.setText(getString(medal_string));
         medalImageView.setImageResource(medal_drawable);
@@ -116,6 +129,14 @@ public class SummaryFragment extends Fragment
         }
     }
 
+    public void getPlayerinfo()
+    {
+        if (mListener != null)
+        {
+            mListener.getPlayerInfo();
+        }
+    }
+
     @Override
     public void onAttach(Activity activity)
     {
@@ -141,6 +162,8 @@ public class SummaryFragment extends Fragment
     {
         // TODO: Update argument type and name
         public void onSummaryButtonPressed(boolean anotherGame);
+
+        public PlayerInfo getPlayerInfo();
     }
 
 }

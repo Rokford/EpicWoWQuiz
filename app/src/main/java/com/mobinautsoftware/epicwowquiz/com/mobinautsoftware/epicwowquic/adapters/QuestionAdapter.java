@@ -22,6 +22,7 @@ public class QuestionAdapter extends BaseAdapter
     private LayoutInflater inflater;
     private int TYPE_QUESTION = 0;
     private int TYPE_ANSWER = 1;
+    private int backgroundColor;
 
     public int getSelectedIndex()
     {
@@ -48,10 +49,15 @@ public class QuestionAdapter extends BaseAdapter
 
     private Question question;
 
-    public QuestionAdapter(Context context)
+    public QuestionAdapter(Context context, PlayerInfo info)
     {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;
+
+        if (info.getFaction().equals(App.FACTION_ALLIANCE))
+            backgroundColor = App.getContext().getResources().getColor(R.color.blue);
+        else
+            backgroundColor = App.getContext().getResources().getColor(R.color.red);
     }
 
     @Override
@@ -138,12 +144,12 @@ public class QuestionAdapter extends BaseAdapter
 
             if (selectedIndex != -1 && selectedIndex == position)
             {
-                convertView.setBackgroundColor(App.getContext().getResources().getColor(R.color.blue));
+                holder.answerTextView.setBackgroundColor(backgroundColor);
                 holder.answerTextView.setTextColor(App.getContext().getResources().getColor(android.R.color.white));
             }
             else
             {
-                convertView.setBackgroundColor(App.getContext().getResources().getColor(android.R.color.transparent));
+                holder.answerTextView.setBackgroundColor(App.getContext().getResources().getColor(android.R.color.white));
                 holder.answerTextView.setTextColor(App.getContext().getResources().getColor(android.R.color.black));
             }
         }

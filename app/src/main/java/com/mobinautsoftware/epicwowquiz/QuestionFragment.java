@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import com.google.android.gms.internal.ch;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquic.adapters.QuestionAdapter;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Answer;
+import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.Question;
 
 
@@ -84,7 +85,7 @@ public class QuestionFragment extends Fragment
     {
         final ListView questionListView = (ListView) view.findViewById(R.id.listView);
 
-        final QuestionAdapter adapter = new QuestionAdapter(getActivity());
+        final QuestionAdapter adapter = new QuestionAdapter(getActivity(), mListener.getPlayerInfo());
 
         adapter.setQuestion(question);
 
@@ -114,6 +115,17 @@ public class QuestionFragment extends Fragment
         });
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+
+        if (mListener.getPlayerInfo().getFaction().equals(App.FACTION_ALLIANCE))
+        {
+            nextButton.setBackgroundColor(getResources().getColor(R.color.blue));
+            progressBar.setProgressDrawable(getResources().getDrawable(R.drawable.progress_bar_alliance));
+        }
+        else
+        {
+            nextButton.setBackgroundColor(getResources().getColor(R.color.red));
+            progressBar.setProgressDrawable(getResources().getDrawable(R.drawable.progress_bar_horde));
+        }
 
         progressBar.setProgress(100);
 
@@ -164,6 +176,16 @@ public class QuestionFragment extends Fragment
             onAnswerSelected(false);
     }
 
+    public PlayerInfo getPlayerinfo()
+    {
+        if (mListener != null)
+        {
+            return  mListener.getPlayerInfo();
+        }
+        else
+            return null;
+    }
+
     public void onAnswerSelected(boolean isCorrectAnswerSelected)
     {
         if (mListener != null)
@@ -197,6 +219,8 @@ public class QuestionFragment extends Fragment
     {
         // TODO: Update argument type and name
         public void onAnswerSelected(boolean isCorrectAnswerSelected);
+
+        public PlayerInfo getPlayerInfo();
     }
 
 }

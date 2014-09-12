@@ -96,6 +96,7 @@ public class HeaderFragment extends Fragment
 
             if (mListener.shouldShowExtraTier())
             {
+                insaneLinearLayout.setVisibility(View.VISIBLE);
                 insaneMedalImageView.setImageResource(PlayerInfo.getMedalResourceForMedal(info.getTier4()));
                 insaneMedalTextView.setText(getResources().getString(R.string.insane));
             }

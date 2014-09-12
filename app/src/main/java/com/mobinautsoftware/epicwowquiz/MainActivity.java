@@ -236,7 +236,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
     public boolean shouldShowExtraTier()
     {
-        return (playerInfo.getTier1() > 2 && playerInfo.getTier2() > 2 && playerInfo.getTier3() > 2 && playerInfo.getTier4() > 2);
+        return (playerInfo.getTier1() > 2 && playerInfo.getTier2() > 2 && playerInfo.getTier3() > 2);
     }
 
     @Override

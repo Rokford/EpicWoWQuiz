@@ -35,7 +35,7 @@ public class ToastAdListener extends AdListener
 
     @Override
     public void onAdLoaded() {
-        Toast.makeText(mContext, "onAdLoaded()", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, "onAdLoaded()", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -55,21 +55,21 @@ public class ToastAdListener extends AdListener
                 errorReason = "No fill";
                 break;
         }
-        Toast.makeText(mContext, String.format("onAdFailedToLoad(%s)", errorReason), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, String.format("onAdFailedToLoad(%s)", errorReason), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onAdOpened() {
-        Toast.makeText(mContext, "onAdOpened()", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, "onAdOpened()", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onAdClosed() {
-        Toast.makeText(mContext, "onAdClosed()", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, "onAdClosed()", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onAdLeftApplication() {
-        Toast.makeText(mContext, "onAdLeftApplication()", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, "onAdLeftApplication()", Toast.LENGTH_SHORT).show();
     }
 }

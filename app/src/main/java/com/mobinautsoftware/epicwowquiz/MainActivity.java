@@ -102,6 +102,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         SharedPreferences prefs = App.getContext().getSharedPreferences(App.SHARED_PREFERENCES_NAME, MODE_PRIVATE);
 
         String faction = prefs.getString(App.SHARED_PREFERENCES_FACTION, "");
+        String race = prefs.getString(App.SHARED_PREFERENCES_RACE, "");
         int tier1 = prefs.getInt(App.SHARED_PREFERENCES_TIER1, 0);
         int tier2 = prefs.getInt(App.SHARED_PREFERENCES_TIER2, 0);
         int tier3 = prefs.getInt(App.SHARED_PREFERENCES_TIER3, 0);
@@ -109,7 +110,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
 
         if (faction.length() > 0)
         {
-            PlayerInfo playerInfo = new PlayerInfo(faction, tier1, tier2, tier3, tier4);
+            PlayerInfo playerInfo = new PlayerInfo(faction, race, tier1, tier2, tier3, tier4);
 
             this.playerInfo = playerInfo;
         }
@@ -187,24 +188,25 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
     }
 
     @Override
-    public void onFactionChosen(String faction)
+    public void onFactionChosen(String faction, String race)
     {
         if (playerInfo != null)
         {
             DialogNewGameFragment dialogFragment = new DialogNewGameFragment();
             dialogFragment.show(getSupportFragmentManager(), null);
             dialogFragment.setFaction(faction);
+            dialogFragment.setRace(race);
         }
         else
-            onDialogOptionChosen(faction, true);
+            onDialogOptionChosen(faction, race,  true);
     }
 
     @Override
-    public void onDialogOptionChosen(String faction, boolean shouldProceed)
+    public void onDialogOptionChosen(String faction, String race, boolean shouldProceed)
     {
         if (shouldProceed)
         {
-            playerInfo = new PlayerInfo(faction, 0, 0, 0, 0);
+            playerInfo = new PlayerInfo(faction, race,  0, 0, 0, 0);
 
             savePlayerInfo();
 
@@ -227,6 +229,7 @@ public class MainActivity extends ActionBarActivity implements OnMainMenuFragmen
         SharedPreferences.Editor editor = prefs.edit();
 
         editor.putString(App.SHARED_PREFERENCES_FACTION, playerInfo.getFaction());
+        editor.putString(App.SHARED_PREFERENCES_RACE, playerInfo.getRace());
         editor.putInt(App.SHARED_PREFERENCES_TIER1, playerInfo.getTier1());
         editor.putInt(App.SHARED_PREFERENCES_TIER2, playerInfo.getTier2());
         editor.putInt(App.SHARED_PREFERENCES_TIER3, playerInfo.getTier3());

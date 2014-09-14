@@ -113,12 +113,24 @@ public class HeaderFragment extends Fragment
             {
                 if (info.getFaction().equals(App.FACTION_ALLIANCE))
                 {
-                    portraitImageView.setImageResource(R.drawable.alliance);
+                    if (info.getRace().equals(App.RACE_HUMAN))
+                        portraitImageView.setImageResource(R.drawable.alliance);
+                    else if (info.getRace().equals(App.RACE_NIGHTELF))
+                        portraitImageView.setImageResource(R.drawable.alliance_nightelf);
+                    else if (info.getRace().equals(App.RACE_GNOME))
+                        portraitImageView.setImageResource(R.drawable.alliance_gnome);
+
                     outerLinearLayout.setBackgroundColor(getResources().getColor(R.color.blue));
                 }
                 else
                 {
-                    portraitImageView.setImageResource(R.drawable.horde);
+                    if (info.getRace().equals(App.RACE_ORC))
+                        portraitImageView.setImageResource(R.drawable.horde);
+                    else if (info.getRace().equals(App.RACE_UNDEAD))
+                        portraitImageView.setImageResource(R.drawable.horde_undead);
+                    else if (info.getRace().equals(App.RACE_BLOODELF))
+                        portraitImageView.setImageResource(R.drawable.horde_bloodelf);
+
                     outerLinearLayout.setBackgroundColor(getResources().getColor(R.color.red));
                 }
             }

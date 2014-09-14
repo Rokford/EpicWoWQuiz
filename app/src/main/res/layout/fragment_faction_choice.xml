@@ -16,15 +16,40 @@
         android:background="@color/blue"
         android:layout_gravity="center_horizontal|top">
 
-        <TextView
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold"
-            android:clickable="false"
-            android:text="@string/alliance"/>
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_margin="15dp"
+                android:id="@+id/humanImageView"
+                android:layout_height="60dp"
+                android:src="@drawable/alliance"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/nightelfImageView"
+
+                android:layout_margin="15dp"
+
+                android:src="@drawable/alliance_nightelf"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:id="@+id/gnomeImageView"
+
+                android:layout_height="60dp"
+                android:layout_margin="15dp"
+
+                android:src="@drawable/alliance_gnome"/>
+
+
+        </LinearLayout>
 
 
     </RelativeLayout>
@@ -39,15 +64,37 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:clickable="false"
+            android:layout_height="wrap_content">
 
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold"
-            android:text="@string/horde"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_margin="15dp"
+                android:id="@+id/orcImageView"
+
+                android:layout_height="60dp"
+                android:src="@drawable/horde"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="15dp"
+                android:id="@+id/undeadImageView"
+
+                android:src="@drawable/horde_undead"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="15dp"
+                android:id="@+id/bloodelfImageView"
+
+                android:src="@drawable/horde_bloodelf"/>
+
+
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

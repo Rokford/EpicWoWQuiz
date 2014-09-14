@@ -13,12 +13,14 @@ public class PlayerInfo
         return faction;
     }
 
-    public void setFaction(String faction)
+    public String getRace()
     {
-        this.faction = faction;
+        return race;
     }
 
     private String faction;
+
+    private String race;
 
     public int getTier1()
     {
@@ -50,9 +52,10 @@ public class PlayerInfo
         this.faction = faction;
     }
 
-    public PlayerInfo(String faction, int tier1, int tier2, int tier3, int tier4)
+    public PlayerInfo(String faction, String race, int tier1, int tier2, int tier3, int tier4)
     {
         this.faction = faction;
+        this.race = race;
         this.tier1 = tier1;
         this.tier2 = tier2;
         this.tier3 = tier3;

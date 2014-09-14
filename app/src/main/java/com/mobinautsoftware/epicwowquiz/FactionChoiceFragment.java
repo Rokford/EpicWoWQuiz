@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 
@@ -75,11 +76,11 @@ public class FactionChoiceFragment extends Fragment
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onFactionChosen(String faction)
+    public void onFactionChosen(String faction, String race)
     {
         if (mListener != null)
         {
-            mListener.onFactionChosen(faction);
+            mListener.onFactionChosen(faction, race);
         }
     }
 
@@ -87,24 +88,67 @@ public class FactionChoiceFragment extends Fragment
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
     {
         RelativeLayout upperRL = (RelativeLayout) view.findViewById(R.id.upperRL);
-
         RelativeLayout lowerRL = (RelativeLayout) view.findViewById(R.id.loweRL);
 
-        upperRL.setOnClickListener(new View.OnClickListener()
+        ImageView humanImageView = (ImageView) view.findViewById(R.id.humanImageView);
+        ImageView nightelfImageView = (ImageView) view.findViewById(R.id.nightelfImageView);
+        ImageView gnomeImageView = (ImageView) view.findViewById(R.id.gnomeImageView);
+
+        ImageView orcImageView = (ImageView) view.findViewById(R.id.orcImageView);
+        ImageView undeadImageView = (ImageView) view.findViewById(R.id.undeadImageView);
+        ImageView bloodelfImageView = (ImageView) view.findViewById(R.id.bloodelfImageView);
+
+        humanImageView.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                onFactionChosen(App.FACTION_ALLIANCE);
+                onFactionChosen(App.FACTION_ALLIANCE, App.RACE_HUMAN);
             }
         });
 
-        lowerRL.setOnClickListener(new View.OnClickListener()
+        nightelfImageView.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                onFactionChosen(App.FACTION_HORDE);
+                onFactionChosen(App.FACTION_ALLIANCE, App.RACE_NIGHTELF);
+            }
+        });
+
+        gnomeImageView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onFactionChosen(App.FACTION_ALLIANCE, App.RACE_GNOME);
+            }
+        });
+
+        orcImageView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onFactionChosen(App.FACTION_HORDE, App.RACE_ORC);
+            }
+        });
+
+        undeadImageView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onFactionChosen(App.FACTION_HORDE, App.RACE_UNDEAD);
+            }
+        });
+
+        bloodelfImageView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onFactionChosen(App.FACTION_HORDE, App.RACE_BLOODELF);
             }
         });
 
@@ -133,20 +177,10 @@ public class FactionChoiceFragment extends Fragment
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFactionChosenListener
     {
         // TODO: Update argument type and name
-        public void onFactionChosen(String faction);
+        public void onFactionChosen(String faction, String race);
     }
 
 }

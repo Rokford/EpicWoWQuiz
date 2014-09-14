@@ -167,395 +167,542 @@
             "answer1": "Pink",
             "answer2": "Brown",
             "answer3": "Red"
+        },
+        {
+            "question": "Where can you meet Archmage Khadgar?",
+            "correctAnswer": "In Shattrath",
+            "answer1": "In Naxxramas",
+            "answer2": "In Dalaran",
+            "answer3": "In Stormwind"
+        },
+        {
+            "question": "Where is Ulduar located?",
+            "correctAnswer": "In Northrend",
+            "answer1": "In Tanaris",
+            "answer2": "In Draenor",
+            "answer3": "in Badlands"
+        },
+        {
+            "question": "Kirin'Tor is organization of...",
+            "correctAnswer": "Mages",
+            "answer1": "Priests",
+            "answer2": "Light-worshippers",
+            "answer3": "Scribes"
+        },
+        {
+            "question": "Where are the Echo Isles located?",
+            "correctAnswer": "South of Durotar",
+            "answer1": "South of Dustwallow March",
+            "answer2": "East of Azshara",
+            "answer3": "Near Darkshore"
+        },
+        {
+            "question": "Can mages use swords?",
+            "correctAnswer": "Yes",
+            "answer1": "Yes, but only spellpower ones",
+            "answer2": "No",
+            "answer3": "No, but they used to"
+        },
+        {
+            "question": "Cenarius is a demigod worshipped by...",
+            "correctAnswer": "Night Elves",
+            "answer1": "Blood Elfes",
+            "answer2": "Humans",
+            "answer3": "Orcs"
         }
     ],
     "medium": [
-                  {
-                      "question": "Death Knight tanking spec used to be...",
-                      "correctAnswer": "All three specializations",
-                      "answer1": "Blood and Frost",
-                      "answer2": "Blood and Unholy",
-                      "answer3": "Always only Blood"
-                  },
-                  {
-                      "question": "Pandaren...",
-                      "correctAnswer": "Were only represented as a single hero in Warcraft RTS game",
-                      "answer1": "Used to be a regular unit in Warcraft RTS game",
-                      "answer2": "Were made up for Mists of Pandaria based on Blizzard artists drawings",
-                      "answer3": "Were made up as April Fools joke"
-                  },
-                  {
-                      "question": "Shattrath City factions, Aldor and Scryers",
-                      "correctAnswer": "Aldor are only Draenei, Scryers only Blood Elves",
-                      "answer1": "Aldor are only Blood Elves, Scryers only Draenei",
-                      "answer2": "Both factions have Draenei and Blood Elves",
-                      "answer3": "Both factions have members of all kinds of races"
-                  },
-                  {
-                      "question": "Time of the Argent Crusade is now!' is a quote from",
-                      "correctAnswer": "Tirion Fordring",
-                      "answer1": "Alexandros Mograine",
-                      "answer2": "Abbendis",
-                      "answer3": "Every Argent Crusade NPC"
-                  },
-                  {
-                      "question": "Who is now the Lich King?",
-                      "correctAnswer": "Bolvar Fordragon",
-                      "answer1": "Arthas Menethil",
-                      "answer2": "Dranosh Saurfang",
-                      "answer3": "Tirion Fordring"
-                  },
-                  {
-                      "question": "Naga leader name is...",
-                      "correctAnswer": "Azshara",
-                      "answer1": "Vashj",
-                      "answer2": "Nazjatar",
-                      "answer3": "Neptulon"
-                  },
-                  {
-                      "question": "What kind of trolls do not exist in Warcraft?",
-                      "correctAnswer": "Fire Trolls",
-                      "answer1": "Frost Trolls",
-                      "answer2": "Dark Trolls",
-                      "answer3": "Forest Trolls"
-                  },
-                  {
-                      "question": "Who created the talisman known as 'Deamon Soul'?",
-                      "correctAnswer": "Deathwing",
-                      "answer1": "Malygos",
-                      "answer2": "Lich King",
-                      "answer3": "Medivh"
-                  },
-                  {
-                      "question": "Which classes originally have quests for epic mounts?",
-                      "correctAnswer": "Paladin and Warlock",
-                      "answer1": "Paladin and Shaman",
-                      "answer2": "Shaman and Warlock",
-                      "answer3": "Only Warlock"
-                  },
-                  {
-                      "question": "WoW had the most subscribers during...",
-                      "correctAnswer": "Wrath of The Lich King",
-                      "answer1": "the Burning Crusade",
-                      "answer2": "Cataclysm",
-                      "answer3": "Classic"
-                  },
-                  {
-                      "question": "What is the name of the original Draenei home?",
-                      "correctAnswer": "Argus",
-                      "answer1": "Dreanor",
-                      "answer2": "Outland",
-                      "answer3": "It is a nameless another dimension"
-                  },
-                  {
-                      "question": "Who is the last boss in Blackwing Lair?",
-                      "correctAnswer": "Nefarian",
-                      "answer1": "Onyxia",
-                      "answer2": "Ragnaros",
-                      "answer3": "Vaelastrasz"
-                  },
-                  {
-                      "question": "Lok'Tar Ogar' means...",
-                      "correctAnswer": "Victory or Death",
-                      "answer1": "For the Horde",
-                      "answer2": "Arm Yourselves",
-                      "answer3": "To Victory"
-                  },
-                  {
-                      "question": "You can fight Darkmaster Grandling in...",
-                      "correctAnswer": "Scholomance",
-                      "answer1": "Stratholme (present)",
-                      "answer2": "Stratholme (past, through Caverns of Time)",
-                      "answer3": "Naxxramas"
-                  },
-                  {
-                      "question": "Can paladin's 'bubble' be removed?",
-                      "correctAnswer": "Yes, by some classes",
-                      "answer1": "Yes, by every class",
-                      "answer2": "Yes, but only by one class",
-                      "answer3": "No"
-                  },
-                  {
-                      "question": "Are there Ogre women in Warcraft universe?",
-                      "correctAnswer": "Yes, but not in WoW",
-                      "answer1": "Yes, and there are some in WoW",
-                      "answer2": "Yes, but they look the same as males",
-                      "answer3": "No, there are not"
-                  },
-                  {
-                      "question": "Rogues...",
-                      "correctAnswer": "Can use any one-handed weapon",
-                      "answer1": "Can use only daggers and swords",
-                      "answer2": "Can use only daggers and fist weapons",
-                      "answer3": "Can use only daggers"
-                  },
-                  {
-                      "question": "What is Ravenholdt?",
-                      "correctAnswer": "Guild of thieves and assassins",
-                      "answer1": "Secret rogue-only inn located in Stormwind",
-                      "answer2": "Name of the highest peak in Alterac Mountains",
-                      "answer3": "Secret rogue-only tavern located in Orgrimmar"
-                  },
-                  {
-                      "question": "Garrosh Hellscream can be encountered in Outland in...",
-                      "correctAnswer": "Nagrand",
-                      "answer1": "Hellfire Peninsula",
-                      "answer2": "Terokkar Forest",
-                      "answer3": "Shadowmoon Valley"
-                  },
-                  {
-                      "question": "Malfurion and Illidan are...",
-                      "correctAnswer": "Brothers",
-                      "answer1": "Cousins",
-                      "answer2": "Unrelated powerful Night Elves",
-                      "answer3": "Unrelated, sworn enemies who used to be friends"
-                  },
-                  {
-                      "question": "Who is Al'Akir?",
-                      "correctAnswer": "Lieutenant of the Old Gods",
-                      "answer1": "Lesser Air Elemental",
-                      "answer2": "Minion of Ragnaros",
-                      "answer3": "The leader of Ramkahen"
-                  },
-                  {
-                      "question": "What is Deepholm?",
-                      "correctAnswer": "One of Elemental Planes",
-                      "answer1": "Place below ocean",
-                      "answer2": "Place deep below earth",
-                      "answer3": "Another planet"
-                  },
-                  {
-                      "question": "Which race is not native to Draenor?",
-                      "correctAnswer": "Draenei",
-                      "answer1": "Ogres",
-                      "answer2": "Orcs",
-                      "answer3": "Arakkoa"
-                  },
-                  {
-                      "question": "Lady Sylvanas was originally...",
-                      "correctAnswer": "A High Elf",
-                      "answer1": "A Night Elf",
-                      "answer2": "A Human",
-                      "answer3": "A Blood Elf"
-                  },
-                  {
-                      "question": "Azuregos belongs to the...",
-                      "correctAnswer": "Blue Dragonflight",
-                      "answer1": "Green Dragonflight",
-                      "answer2": "Red Dragonflight",
-                      "answer3": "Bronze Dragonflight"
-                  },
-                  {
-                      "question": "When was Jewelcrafting added to the game?",
-                      "correctAnswer": "In The Burning Crusade",
-                      "answer1": "At some point in Classic WoW",
-                      "answer2": "In Wrath of the Lich King",
-                      "answer3": "in Cataclysm"
-                  },
-                  {
-                      "question": "What is Emerald Dream?",
-                      "correctAnswer": "A spirit world",
-                      "answer1": "An elemental plane",
-                      "answer2": "Another planet",
-                      "answer3": "Mirrored Azeroth that can be entered  while dreaming"
-                  },
-                  {
-                      "question": "Can paladin use staves?",
-                      "correctAnswer": "No",
-                      "answer1": "Yes",
-                      "answer2": "Yes, but only those without spellpower",
-                      "answer3": "No, but they used to"
-                  }
-              ],
+        {
+            "question": "Death Knight tanking spec used to be...",
+            "correctAnswer": "All three specializations",
+            "answer1": "Blood and Frost",
+            "answer2": "Blood and Unholy",
+            "answer3": "Always only Blood"
+        },
+        {
+            "question": "What was the size of original Zul'Aman instance?",
+            "correctAnswer": "10 man raid",
+            "answer1": "20 man raid",
+            "answer2": "5 man dungeon",
+            "answer3": "40 man raid"
+        },
+        {
+            "question": "What is Grim Batol",
+            "correctAnswer": "Old dwarven stronghold",
+            "answer1": "Ancient human city",
+            "answer2": "First orcish stronghold in Azeroth",
+            "answer3": "Ogre Stronghold"
+        },
+        {
+            "question": "Who is Anub'Arak?",
+            "correctAnswer": "Former king of Nerubians",
+            "answer1": "One of Quiraj emperors",
+            "answer2": "A Deamon Lord",
+            "answer3": "Powerful Lich"
+        },
+        {
+            "question": "Who was Kel'thuzad before he became the Lich Lord?",
+            "correctAnswer": "Mage",
+            "answer1": "Warrior",
+            "answer2": "Priest",
+            "answer3": "Paladin"
+        },
+        {
+            "question": "Who was the last boss of Trial of the Crusader?",
+            "correctAnswer": "Anub'Arak",
+            "answer1": "The Lich King",
+            "answer2": "Lord Jaraxxus",
+            "answer3": "Twin Val'kyr"
+        },
+        {
+            "question": "Loken was...",
+            "correctAnswer": "Titan Watcher",
+            "answer1": "Titan",
+            "answer2": "Frost Giant",
+            "answer3": "Dwarf"
+        },
+        {
+            "question": "The Great Sundering was the event when...",
+            "correctAnswer": "Well of Eternity was destroyed",
+            "answer1": "Deathwing destroyed part of Azeroth",
+            "answer2": "Draenor was shattered into pieces",
+            "answer3": "Draenei homeworld was destroyed"
+        },
+        {
+            "question": "Vol'jin is the chieftain of...",
+            "correctAnswer": "Darkspear Tribe",
+            "answer1": "Zandalari Tribe",
+            "answer2": "Raventusk Tribe",
+            "answer3": "All troll tribes"
+        },
+        {
+            "question": "Pandaren...",
+            "correctAnswer": "Were only represented as a single hero in Warcraft RTS game",
+            "answer1": "Used to be a regular unit in Warcraft RTS game",
+            "answer2": "Were made up for Mists of Pandaria based on Blizzard artists drawings",
+            "answer3": "Were made up as April Fools joke"
+        },
+        {
+            "question": "Shattrath City factions, Aldor and Scryers",
+            "correctAnswer": "Aldor are only Draenei, Scryers only Blood Elves",
+            "answer1": "Aldor are only Blood Elves, Scryers only Draenei",
+            "answer2": "Both factions have Draenei and Blood Elves",
+            "answer3": "Both factions have members of all kinds of races"
+        },
+        {
+            "question": "Time of the Argent Crusade is now!' is a quote from",
+            "correctAnswer": "Tirion Fordring",
+            "answer1": "Alexandros Mograine",
+            "answer2": "Abbendis",
+            "answer3": "Every Argent Crusade NPC"
+        },
+        {
+            "question": "Who is now the Lich King?",
+            "correctAnswer": "Bolvar Fordragon",
+            "answer1": "Arthas Menethil",
+            "answer2": "Dranosh Saurfang",
+            "answer3": "Tirion Fordring"
+        },
+        {
+            "question": "Naga leader name is...",
+            "correctAnswer": "Azshara",
+            "answer1": "Vashj",
+            "answer2": "Nazjatar",
+            "answer3": "Neptulon"
+        },
+        {
+            "question": "What kind of trolls do not exist in Warcraft?",
+            "correctAnswer": "Fire Trolls",
+            "answer1": "Frost Trolls",
+            "answer2": "Dark Trolls",
+            "answer3": "Forest Trolls"
+        },
+        {
+            "question": "Who created the talisman known as 'Deamon Soul'?",
+            "correctAnswer": "Deathwing",
+            "answer1": "Malygos",
+            "answer2": "Lich King",
+            "answer3": "Medivh"
+        },
+        {
+            "question": "Which classes originally have quests for epic mounts?",
+            "correctAnswer": "Paladin and Warlock",
+            "answer1": "Paladin and Shaman",
+            "answer2": "Shaman and Warlock",
+            "answer3": "Only Warlock"
+        },
+        {
+            "question": "WoW had the most subscribers during...",
+            "correctAnswer": "Wrath of The Lich King",
+            "answer1": "the Burning Crusade",
+            "answer2": "Cataclysm",
+            "answer3": "Classic"
+        },
+        {
+            "question": "What is the name of the original Draenei home?",
+            "correctAnswer": "Argus",
+            "answer1": "Dreanor",
+            "answer2": "Outland",
+            "answer3": "It is a nameless another dimension"
+        },
+        {
+            "question": "Who is the last boss in Blackwing Lair?",
+            "correctAnswer": "Nefarian",
+            "answer1": "Onyxia",
+            "answer2": "Ragnaros",
+            "answer3": "Vaelastrasz"
+        },
+        {
+            "question": "Lok'Tar Ogar' means...",
+            "correctAnswer": "Victory or Death",
+            "answer1": "For the Horde",
+            "answer2": "Arm Yourselves",
+            "answer3": "To Victory"
+        },
+        {
+            "question": "You can fight Darkmaster Grandling in...",
+            "correctAnswer": "Scholomance",
+            "answer1": "Stratholme (present)",
+            "answer2": "Stratholme (past, through Caverns of Time)",
+            "answer3": "Naxxramas"
+        },
+        {
+            "question": "Can paladin's 'bubble' be removed?",
+            "correctAnswer": "Yes, by some classes",
+            "answer1": "Yes, by every class",
+            "answer2": "Yes, but only by one class",
+            "answer3": "No"
+        },
+        {
+            "question": "Are there Ogre women in Warcraft universe?",
+            "correctAnswer": "Yes, but not in WoW",
+            "answer1": "Yes, and there are some in WoW",
+            "answer2": "Yes, but they look the same as males",
+            "answer3": "No, there are not"
+        },
+        {
+            "question": "Rogues...",
+            "correctAnswer": "Can use any one-handed weapon",
+            "answer1": "Can use only daggers and swords",
+            "answer2": "Can use only daggers and fist weapons",
+            "answer3": "Can use only daggers"
+        },
+        {
+            "question": "What is Ravenholdt?",
+            "correctAnswer": "Guild of thieves and assassins",
+            "answer1": "Secret rogue-only inn located in Stormwind",
+            "answer2": "Name of the highest peak in Alterac Mountains",
+            "answer3": "Secret rogue-only tavern located in Orgrimmar"
+        },
+        {
+            "question": "Garrosh Hellscream can be encountered in Outland in...",
+            "correctAnswer": "Nagrand",
+            "answer1": "Hellfire Peninsula",
+            "answer2": "Terokkar Forest",
+            "answer3": "Shadowmoon Valley"
+        },
+        {
+            "question": "Malfurion and Illidan are...",
+            "correctAnswer": "Brothers",
+            "answer1": "Cousins",
+            "answer2": "Unrelated powerful Night Elves",
+            "answer3": "Unrelated, sworn enemies who used to be friends"
+        },
+        {
+            "question": "Who is Al'Akir?",
+            "correctAnswer": "Lieutenant of the Old Gods",
+            "answer1": "Lesser Air Elemental",
+            "answer2": "Minion of Ragnaros",
+            "answer3": "The leader of Ramkahen"
+        },
+        {
+            "question": "What is Deepholm?",
+            "correctAnswer": "One of Elemental Planes",
+            "answer1": "Place below ocean",
+            "answer2": "Place deep below earth",
+            "answer3": "Another planet"
+        },
+        {
+            "question": "Which race is not native to Draenor?",
+            "correctAnswer": "Draenei",
+            "answer1": "Ogres",
+            "answer2": "Orcs",
+            "answer3": "Arakkoa"
+        },
+        {
+            "question": "Lady Sylvanas was originally...",
+            "correctAnswer": "A High Elf",
+            "answer1": "A Night Elf",
+            "answer2": "A Human",
+            "answer3": "A Blood Elf"
+        },
+        {
+            "question": "Azuregos belongs to the...",
+            "correctAnswer": "Blue Dragonflight",
+            "answer1": "Green Dragonflight",
+            "answer2": "Red Dragonflight",
+            "answer3": "Bronze Dragonflight"
+        },
+        {
+            "question": "When was Jewelcrafting added to the game?",
+            "correctAnswer": "In The Burning Crusade",
+            "answer1": "At some point in Classic WoW",
+            "answer2": "In Wrath of the Lich King",
+            "answer3": "in Cataclysm"
+        },
+        {
+            "question": "What is Emerald Dream?",
+            "correctAnswer": "A spirit world",
+            "answer1": "An elemental plane",
+            "answer2": "Another planet",
+            "answer3": "Mirrored Azeroth that can be entered  while dreaming"
+        },
+        {
+            "question": "Can paladin use staves?",
+            "correctAnswer": "No",
+            "answer1": "Yes",
+            "answer2": "Yes, but only those without spellpower",
+            "answer3": "No, but they used to"
+        }
+    ],
     "hard": [
-                {
-                    "question": "In classic WoW the current king of Stormwind...",
-                    "correctAnswer": "Appeared as a NPC",
-                    "answer1": "Appeared as a child NPC",
-                    "answer2": "Was only mentioned in quests",
-                    "answer3": "Never appeared"
-                },
-                {
-                    "question": " 'Despair, so delicious' and 'Fear... so exhilarating' is a quote from...",
-                    "correctAnswer": "Captain Falric",
-                    "answer1": "Captain Marwyn",
-                    "answer2": "Arthas Menethil",
-                    "answer3": "Lady Sylvanas"
-                },
-                {
-                    "question": "How many Old Gods were originally trapped under Azeroth surface?",
-                    "correctAnswer": "5",
-                    "answer1": "6",
-                    "answer2": "3",
-                    "answer3": "4"
-                },
-                {
-                    "question": "Naga originally used to be...",
-                    "correctAnswer": "Night Elves",
-                    "answer1": "They were always Naga",
-                    "answer2": "Blood Elves",
-                    "answer3": "Humans"
-                },
-                {
-                    "question": "What was the race of first Lich King?",
-                    "correctAnswer": "Orc",
-                    "answer1": "Human",
-                    "answer2": "Forsaken",
-                    "answer3": "Deamon"
-                },
-                {
-                    "question": "Who was the mother of Medivh?",
-                    "correctAnswer": "Aegwynn",
-                    "answer1": "Garona",
-                    "answer2": "Azshara",
-                    "answer3": "No one knows"
-                },
-                {
-                    "question": "What was Medvih's title?",
-                    "correctAnswer": "The Last Guardian",
-                    "answer1": "The Keeper of Secrets",
-                    "answer2": "Destroyer of the Worlds",
-                    "answer3": "The Forsaken"
-                },
-                {
-                    "question": "What was the source of Malygos' madness?",
-                    "correctAnswer": "Death of his dragonflight",
-                    "answer1": "Old Gods corruption",
-                    "answer2": "Twisted magic",
-                    "answer3": "Time travels"
-                },
-                {
-                    "question": "Who was the first wielder of the Ashbringer sword?",
-                    "correctAnswer": "Alexandros Mograine",
-                    "answer1": "Darion Mograine",
-                    "answer2": "Arthas Menethil",
-                    "answer3": "Tirion Fordring"
-                },
-                {
-                    "question": "The name of Orcish tribe 'Mag'har' means...",
-                    "correctAnswer": "Uncorrupted",
-                    "answer1": "Unbreakable",
-                    "answer2": "Red-skinned",
-                    "answer3": "Unyielding"
-                },
-                {
-                    "question": "Why is there so few Blue Dragonflight?",
-                    "correctAnswer": "They were killed by Deathwing",
-                    "answer1": "Overuse of magic killed many of them",
-                    "answer2": "They lost a war to Red Dragonflight",
-                    "answer3": "They were always so few"
-                },
-                {
-                    "question": "What lies beneath Oshu'Gun in Nagrand?",
-                    "correctAnswer": "An imprisoned Naaru",
-                    "answer1": "An imprisoned Deamon Lord",
-                    "answer2": "Naaru artifacts",
-                    "answer3": "Ancient Naaru power crystal"
-                },
-                {
-                    "question": "Who killed king Llane Wrynn?",
-                    "correctAnswer": "Garona Halforcen",
-                    "answer1": "Gul'Dan",
-                    "answer2": "Orgrim Doomhammer",
-                    "answer3": "Burning Legion"
-                },
-                {
-                    "question": "Ner'zhul was originally...",
-                    "correctAnswer": "Shaman",
-                    "answer1": "Warlock",
-                    "answer2": "Warrior",
-                    "answer3": "Hunter"
-                },
-                {
-                    "question": "Garrosh Hellscream was empowered by the power of",
-                    "correctAnswer": "Y'Shaarj",
-                    "answer1": "N'Zoth",
-                    "answer2": "C'Thun",
-                    "answer3": "Yogg-Saron"
-                },
-                {
-                    "question": "The ancient hydra Aku'mai can be encountered in...",
-                    "correctAnswer": "Blackfathom Deeps",
-                    "answer1": "Wailing Caverns",
-                    "answer2": "Razorfen Kraul",
-                    "answer3": "Razorfen Downs"
-                },
-                {
-                    "question": "What is Skywall?",
-                    "correctAnswer": "Air elementals stronghold",
-                    "answer1": "Great wall in the Pandaria",
-                    "answer2": "The wall that used to separate Worgen kingdom",
-                    "answer3": "Wall of Stormwind"
-                },
-                {
-                    "question": "What or who destroyed Auchindioun?",
-                    "correctAnswer": "Evil magic",
-                    "answer1": "Orc under Burning Legion influence",
-                    "answer2": "One powerful Burning Ledion lord",
-                    "answer3": "Its unknown"
-                },
-                {
-                    "question": "What was the fate of Drakuru?",
-                    "correctAnswer": "He was slain by the Lich King",
-                    "answer1": "He was slain by the players",
-                    "answer2": "He still lives as a Scourge lord",
-                    "answer3": "He was turned into lesser Scourge minion"
-                },
-                {
-                    "question": "How many times was Sylvanas model changed?",
-                    "correctAnswer": "Twice",
-                    "answer1": "Once",
-                    "answer2": "Triple",
-                    "answer3": "It was just improved several times"
-                },
-                {
-                    "question": "What is the origin of Worgen?",
-                    "correctAnswer": "Druids worshipping wolf god",
-                    "answer1": "Ancient alchemy",
-                    "answer2": "Curse from Twisting Nether",
-                    "answer3": "Mage Arugal's magic"
-                },
-                {
-                    "question": "What or who are Loa?",
-                    "correctAnswer": "Spirits worshipped by Trolls",
-                    "answer1": "Troll lucky talismans",
-                    "answer2": "Troll weapons",
-                    "answer3": "Eldest Trolls"
-                },
-                {
-                    "question": "Who is Terokk?",
-                    "correctAnswer": "Arakkoa's god",
-                    "answer1": "Arakoa's leader",
-                    "answer2": "Ancient Arakkoa's hero",
-                    "answer3": "The lost capital of Arakkoa"
-                },
-                {
-                    "question": "Xavius was orginally...",
-                    "correctAnswer": "A Night Elf",
-                    "answer1": "A lesser deamon",
-                    "answer2": "A powerful deamon",
-                    "answer3": "A human"
-                },
-                {
-                    "question": "War of the Ancient was fought between",
-                    "correctAnswer": "Elves and Burning Legion",
-                    "answer1": "Human and Orcs",
-                    "answer2": "Factions of Elves",
-                    "answer3": "Dragons and mortal races"
-                },
-                {
-                    "question": "Who is Krasus?",
-                    "correctAnswer": "Consort of the Alexstrasza",
-                    "answer1": "Leader of the Kirin Tor",
-                    "answer2": "Powerful Elf",
-                    "answer3": "Deathwing's minion"
-                },
-                {
-                    "question": "Who or What was Arathor?",
-                    "correctAnswer": "First human empire",
-                    "answer1": "One of human Capitals",
-                    "answer2": "Great human hero",
-                    "answer3": "First human king"
-                }
-            ]
+        {
+            "question": "In classic WoW the current king of Stormwind...",
+            "correctAnswer": "Appeared as a NPC",
+            "answer1": "Appeared as a child NPC",
+            "answer2": "Was only mentioned in quests",
+            "answer3": "Never appeared"
+        },
+        {
+            "question": " 'Despair, so delicious' and 'Fear... so exhilarating' is a quote from...",
+            "correctAnswer": "Captain Falric",
+            "answer1": "Captain Marwyn",
+            "answer2": "Arthas Menethil",
+            "answer3": "Lady Sylvanas"
+        },
+        {
+            "question": "How many Old Gods were originally trapped under Azeroth surface?",
+            "correctAnswer": "5",
+            "answer1": "6",
+            "answer2": "3",
+            "answer3": "4"
+        },
+        {
+            "question": "Naga originally used to be...",
+            "correctAnswer": "Night Elves",
+            "answer1": "They were always Naga",
+            "answer2": "Blood Elves",
+            "answer3": "Humans"
+        },
+        {
+            "question": "What was the race of first Lich King?",
+            "correctAnswer": "Orc",
+            "answer1": "Human",
+            "answer2": "Forsaken",
+            "answer3": "Deamon"
+        },
+        {
+            "question": "Who was the mother of Medivh?",
+            "correctAnswer": "Aegwynn",
+            "answer1": "Garona",
+            "answer2": "Azshara",
+            "answer3": "No one knows"
+        },
+        {
+            "question": "What was Medvih's title?",
+            "correctAnswer": "The Last Guardian",
+            "answer1": "The Keeper of Secrets",
+            "answer2": "Destroyer of the Worlds",
+            "answer3": "The Forsaken"
+        },
+        {
+            "question": "What was the source of Malygos' madness?",
+            "correctAnswer": "Death of his dragonflight",
+            "answer1": "Old Gods corruption",
+            "answer2": "Twisted magic",
+            "answer3": "Time travels"
+        },
+        {
+            "question": "Who was the first wielder of the Ashbringer sword?",
+            "correctAnswer": "Alexandros Mograine",
+            "answer1": "Darion Mograine",
+            "answer2": "Arthas Menethil",
+            "answer3": "Tirion Fordring"
+        },
+        {
+            "question": "The name of Orcish tribe 'Mag'har' means...",
+            "correctAnswer": "Uncorrupted",
+            "answer1": "Unbreakable",
+            "answer2": "Red-skinned",
+            "answer3": "Unyielding"
+        },
+        {
+            "question": "Why is there so few Blue Dragonflight?",
+            "correctAnswer": "They were killed by Deathwing",
+            "answer1": "Overuse of magic killed many of them",
+            "answer2": "They lost a war to Red Dragonflight",
+            "answer3": "They were always so few"
+        },
+        {
+            "question": "What lies beneath Oshu'Gun in Nagrand?",
+            "correctAnswer": "An imprisoned Naaru",
+            "answer1": "An imprisoned Deamon Lord",
+            "answer2": "Naaru artifacts",
+            "answer3": "Ancient Naaru power crystal"
+        },
+        {
+            "question": "Who killed king Llane Wrynn?",
+            "correctAnswer": "Garona Halforcen",
+            "answer1": "Gul'Dan",
+            "answer2": "Orgrim Doomhammer",
+            "answer3": "Burning Legion"
+        },
+        {
+            "question": "Ner'zhul was originally...",
+            "correctAnswer": "Shaman",
+            "answer1": "Warlock",
+            "answer2": "Warrior",
+            "answer3": "Hunter"
+        },
+        {
+            "question": "Garrosh Hellscream was empowered by the power of",
+            "correctAnswer": "Y'Shaarj",
+            "answer1": "N'Zoth",
+            "answer2": "C'Thun",
+            "answer3": "Yogg-Saron"
+        },
+        {
+            "question": "The ancient hydra Aku'mai can be encountered in...",
+            "correctAnswer": "Blackfathom Deeps",
+            "answer1": "Wailing Caverns",
+            "answer2": "Razorfen Kraul",
+            "answer3": "Razorfen Downs"
+        },
+        {
+            "question": "What is Skywall?",
+            "correctAnswer": "Air elementals stronghold",
+            "answer1": "Great wall in the Pandaria",
+            "answer2": "The wall that used to separate Worgen kingdom",
+            "answer3": "Wall of Stormwind"
+        },
+        {
+            "question": "What or who destroyed Auchindioun?",
+            "correctAnswer": "Evil magic",
+            "answer1": "Orc under Burning Legion influence",
+            "answer2": "One powerful Burning Ledion lord",
+            "answer3": "Its unknown"
+        },
+        {
+            "question": "What was the fate of Drakuru?",
+            "correctAnswer": "He was slain by the Lich King",
+            "answer1": "He was slain by the players",
+            "answer2": "He still lives as a Scourge lord",
+            "answer3": "He was turned into lesser Scourge minion"
+        },
+        {
+            "question": "How many times was Sylvanas model changed?",
+            "correctAnswer": "Twice",
+            "answer1": "Once",
+            "answer2": "Triple",
+            "answer3": "It was just improved several times"
+        },
+        {
+            "question": "What is the origin of Worgen?",
+            "correctAnswer": "Druids worshipping wolf god",
+            "answer1": "Ancient alchemy",
+            "answer2": "Curse from Twisting Nether",
+            "answer3": "Mage Arugal's magic"
+        },
+        {
+            "question": "What or who are Loa?",
+            "correctAnswer": "Spirits worshipped by Trolls",
+            "answer1": "Troll lucky talismans",
+            "answer2": "Troll weapons",
+            "answer3": "Eldest Trolls"
+        },
+        {
+            "question": "Who is Terokk?",
+            "correctAnswer": "Arakkoa's god",
+            "answer1": "Arakoa's leader",
+            "answer2": "Ancient Arakkoa's hero",
+            "answer3": "The lost capital of Arakkoa"
+        },
+        {
+            "question": "Xavius was orginally...",
+            "correctAnswer": "A Night Elf",
+            "answer1": "A lesser deamon",
+            "answer2": "A powerful deamon",
+            "answer3": "A human"
+        },
+        {
+            "question": "War of the Ancient was fought between",
+            "correctAnswer": "Elves and Burning Legion",
+            "answer1": "Human and Orcs",
+            "answer2": "Factions of Elves",
+            "answer3": "Dragons and mortal races"
+        },
+        {
+            "question": "Who is Krasus?",
+            "correctAnswer": "Consort of the Alexstrasza",
+            "answer1": "Leader of the Kirin Tor",
+            "answer2": "Powerful Elf",
+            "answer3": "Deathwing's minion"
+        },
+        {
+            "question": "Who or What was Arathor?",
+            "correctAnswer": "First human empire",
+            "answer1": "One of human Capitals",
+            "answer2": "Great human hero",
+            "answer3": "First human king"
+        },
+        {
+            "question": "Amani was the empire of...",
+            "correctAnswer": "Forest Trolls",
+            "answer1": "Dark Trolls",
+            "answer2": "Frost Trolls",
+            "answer3": "Neither of them"
+        },
+        {
+            "question": "Devourer of Souls is a boss from...",
+            "correctAnswer": "Forge of Souls",
+            "answer1": "Dark Temple",
+            "answer2": "Halls of Stone",
+            "answer3": "Naxxramas"
+        },
+        {
+            "question": "What happended to King Magni Bronzebeard?",
+            "correctAnswer": "He was turned into statue",
+            "answer1": "Nothing, he rules as the King of Ironforge",
+            "answer2": "He was slain in battle",
+            "answer3": "He went missing"
+        },
+        {
+            "question": "Khaz Modan means...",
+            "correctAnswer": "Mountain of Khaz",
+            "answer1": "Land of Dwarfes",
+            "answer2": "Kingdom in the Mountains",
+            "answer3": "The Highest Peak"
+        },
+        {
+            "question": "What was the War of the Spider?",
+            "correctAnswer": "War between Scourge and Nerubians",
+            "answer1": "War between Trolls and Quiraj",
+            "answer2": "War between Nerubians and humans",
+            "answer3": "War between Quiraj and Nerubians"
+        },
+        {
+            "question": "Who was Thrall's father?",
+            "correctAnswer": "Durotan",
+            "answer1": "Grom",
+            "answer2": "Kargath",
+            "answer3": "Orgrim"
+        },
+        {
+            "question": "What is Taurahe?",
+            "correctAnswer": "Language of Tauren",
+            "answer1": "Kingdom of Tauren",
+            "answer2": "Race similar to Tauren",
+            "answer3": "Name of Tauren mythology"
+        }
+    ]
 }

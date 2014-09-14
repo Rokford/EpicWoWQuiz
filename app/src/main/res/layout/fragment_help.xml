@@ -120,5 +120,13 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/help6"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/help7"/>
+
     </LinearLayout>
 </ScrollView>

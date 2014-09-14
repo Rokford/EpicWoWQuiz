@@ -1,202 +1,219 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
+              xmlns:ads="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:id="@+id/outerLinearLayout"
               android:background="@android:color/darker_gray"
+              android:orientation="vertical"
               android:layout_height="match_parent"
               tools:context="com.mobinautsoftware.epicwowquiz.HeaderFragment">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/ad_unit_id"/>
 
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:src="@drawable/no_faction"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/portraitImageView"/>
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/no_rank"
-            android:textColor="@android:color/white"
-            android:id="@+id/textUnderIconTextView"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="center"/>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:id="@+id/iconImageView"
-                android:src="@drawable/no_rank"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"/>
-
-
-        </RelativeLayout>
-
-    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
-        android:orientation="horizontal"
-        android:layout_weight="3">
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
 
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_weight="1">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/easy"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/tier1TextView"
-                    android:gravity="center"/>
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/easyMedalImageView"
-                    android:src="@drawable/medal_no_medal"/>
-            </LinearLayout>
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/no_faction"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/portraitImageView"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/no_rank"
+                android:textColor="@android:color/white"
+                android:id="@+id/textUnderIconTextView"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/iconImageView"
+                    android:src="@drawable/no_rank"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"/>
+
+
+            </RelativeLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/medium"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/tier2TextView"
-                    android:gravity="center"/>
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/mediumMedalImageView"
-                    android:src="@drawable/medal_no_medal"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/hard"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/tier3TextView"
-                    android:autoText="false"
-                    android:gravity="center"/>
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/hardMedalImageView"
-                    android:src="@drawable/medal_no_medal"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             android:orientation="horizontal"
-            android:id="@+id/insaneLL">
+            android:layout_weight="3">
+
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@android:color/white"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/insane"
-                    android:id="@+id/tier4TextView"
-                    android:gravity="center"/>
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/insaneMedalImageView"
-                    android:src="@drawable/medal_no_medal"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/easy"
+                        android:textColor="@android:color/white"
+                        android:id="@+id/tier1TextView"
+                        android:gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/easyMedalImageView"
+                        android:src="@drawable/medal_no_medal"/>
+                </LinearLayout>
+
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/medium"
+                        android:textColor="@android:color/white"
+                        android:id="@+id/tier2TextView"
+                        android:gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/mediumMedalImageView"
+                        android:src="@drawable/medal_no_medal"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/hard"
+                        android:textColor="@android:color/white"
+                        android:id="@+id/tier3TextView"
+                        android:autoText="false"
+                        android:gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/hardMedalImageView"
+                        android:src="@drawable/medal_no_medal"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:id="@+id/insaneLL">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@android:color/white"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/insane"
+                        android:id="@+id/tier4TextView"
+                        android:gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/insaneMedalImageView"
+                        android:src="@drawable/medal_no_medal"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
         </LinearLayout>
-
-
     </LinearLayout>
 
 </LinearLayout>

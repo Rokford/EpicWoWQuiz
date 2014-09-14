@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
 
 public class HeaderFragment extends Fragment
@@ -35,6 +37,8 @@ public class HeaderFragment extends Fragment
     private LinearLayout insaneLinearLayout;
 
     private LinearLayout outerLinearLayout;
+
+    private AdView mAdView;
 
     public HeaderFragment()
     {
@@ -82,6 +86,10 @@ public class HeaderFragment extends Fragment
         insaneMedalTextView = (TextView) view.findViewById(R.id.tier4TextView);
 
         outerLinearLayout = (LinearLayout) view.findViewById(R.id.outerLinearLayout);
+
+        mAdView = (AdView) view.findViewById(R.id.adView);
+        mAdView.setAdListener(new ToastAdListener(getActivity()));
+        mAdView.loadAd(new AdRequest.Builder().build());
 
         updateContent(mListener.headerViewCreated());
     }
@@ -180,6 +188,24 @@ public class HeaderFragment extends Fragment
         public boolean shouldShowExtraTier();
 
         public PlayerInfo headerViewCreated();
+    }
+
+    @Override
+    public void onPause() {
+        mAdView.pause();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mAdView.resume();
+    }
+
+    @Override
+    public void onDestroy() {
+        mAdView.destroy();
+        super.onDestroy();
     }
 
 }

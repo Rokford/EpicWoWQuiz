@@ -38,16 +38,16 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:padding="5dp"
-                android:src="@drawable/alliance"/>
+                android:src="@drawable/priest"/>
 
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:padding="5dp"
-                android:src="@drawable/horde"/>
+                android:src="@drawable/warrior"/>
 
         </LinearLayout>
 
@@ -66,18 +66,23 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="65dp"
+                android:layout_margin="10dp"
+                android:layout_height="65dp"
                 android:src="@drawable/medal_bronze"/>
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_margin="10dp"
+
                 android:src="@drawable/medal_silver"/>
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="65dp"
+                android:layout_margin="10dp"
+
+                android:layout_height="65dp"
                 android:src="@drawable/medal_gold"/>
 
         </LinearLayout>
@@ -101,13 +106,13 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
-                android:src="@drawable/no_rank_alliance"/>
+                android:src="@drawable/no_rank_magic"/>
 
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
-                android:src="@drawable/no_rank_horde"/>
+                android:src="@drawable/rank1_war"/>
 
         </LinearLayout>
 

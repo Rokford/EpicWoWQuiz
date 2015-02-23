@@ -190,28 +190,28 @@ public class PlayerInfo
         {
             if (tier1 > 2 && tier2 > 2 && tier3 > 2 && tier4 > 2)
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank4alliance;
-                else return R.string.rank4horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank4magic;
+                else return R.string.rank4war;
             }
             if (tier1 > 2 && tier2 > 2 && tier3 > 2)
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank3alliance;
-                else return R.string.rank3horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank3magic;
+                else return R.string.rank3war;
             }
             if (tier1 > 1 && tier2 > 1 && tier3 > 1)
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank2alliance;
-                else return R.string.rank2horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank2magic;
+                else return R.string.rank2war;
             }
             if (tier1 > 0 && tier2 > 0 && tier3 > 0)
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank1alliance;
-                else return R.string.rank1horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.rank1magic;
+                else return R.string.rank1war;
             }
             else
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.no_rankalliance;
-                else return R.string.no_rankhorde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.string.no_rankmagic;
+                else return R.string.no_rankwar;
             }
         }
         else
@@ -226,28 +226,28 @@ public class PlayerInfo
         {
             if (tier1 > 2 && tier2 > 2 && tier3 > 2 && tier4 > 2)
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank4_alliance;
-                else return R.drawable.rank4_horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank4_magic;
+                else return R.drawable.rank4_war;
             }
             if (tier1 > 2 && tier2 > 2 && tier3 > 2)
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank3_alliance;
-                else return R.drawable.rank3_horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank3_magic;
+                else return R.drawable.rank3_war;
             }
             if (tier1 > 1 && tier2 > 1 && tier3 > 1)
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank2_alliance;
-                else return R.drawable.rank_2horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank2_magic;
+                else return R.drawable.rank2_war;
             }
             if (tier1 > 0 && tier2 > 0 && tier3 > 0)
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank1_alliance;
-                else return R.drawable.rank1_horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.rank1_magic;
+                else return R.drawable.rank1_war;
             }
             else
             {
-                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.no_rank_alliance;
-                else return R.drawable.no_rank_horde;
+                if (this.faction.equals(App.FACTION_ALLIANCE)) return R.drawable.no_rank_magic;
+                else return R.drawable.no_rank_war;
             }
         }
         else

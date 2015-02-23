@@ -12,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.mobinautsoftware.epicwowquiz.com.mobinautsoftware.epicwowquiz.model.PlayerInfo;
 
 public class HeaderFragment extends Fragment
@@ -38,7 +36,7 @@ public class HeaderFragment extends Fragment
 
     private LinearLayout outerLinearLayout;
 
-    private AdView mAdView;
+//    private AdView mAdView;
 
     public HeaderFragment()
     {
@@ -87,9 +85,9 @@ public class HeaderFragment extends Fragment
 
         outerLinearLayout = (LinearLayout) view.findViewById(R.id.outerLinearLayout);
 
-        mAdView = (AdView) view.findViewById(R.id.adView);
-        mAdView.setAdListener(new ToastAdListener(getActivity()));
-        mAdView.loadAd(new AdRequest.Builder().build());
+//        mAdView = (AdView) view.findViewById(R.id.adView);
+//        mAdView.setAdListener(new ToastAdListener(getActivity()));
+//        mAdView.loadAd(new AdRequest.Builder().build());
 
         updateContent(mListener.headerViewCreated());
     }
@@ -122,22 +120,22 @@ public class HeaderFragment extends Fragment
                 if (info.getFaction().equals(App.FACTION_ALLIANCE))
                 {
                     if (info.getRace().equals(App.RACE_HUMAN))
-                        portraitImageView.setImageResource(R.drawable.alliance);
+                        portraitImageView.setImageResource(R.drawable.priest);
                     else if (info.getRace().equals(App.RACE_NIGHTELF))
-                        portraitImageView.setImageResource(R.drawable.alliance_nightelf);
+                        portraitImageView.setImageResource(R.drawable.mage);
                     else if (info.getRace().equals(App.RACE_GNOME))
-                        portraitImageView.setImageResource(R.drawable.alliance_gnome);
+                        portraitImageView.setImageResource(R.drawable.druid);
 
                     outerLinearLayout.setBackgroundColor(getResources().getColor(R.color.blue));
                 }
                 else
                 {
                     if (info.getRace().equals(App.RACE_ORC))
-                        portraitImageView.setImageResource(R.drawable.horde);
+                        portraitImageView.setImageResource(R.drawable.warrior);
                     else if (info.getRace().equals(App.RACE_UNDEAD))
-                        portraitImageView.setImageResource(R.drawable.horde_undead);
+                        portraitImageView.setImageResource(R.drawable.rogue);
                     else if (info.getRace().equals(App.RACE_BLOODELF))
-                        portraitImageView.setImageResource(R.drawable.horde_bloodelf);
+                        portraitImageView.setImageResource(R.drawable.hunter);
 
                     outerLinearLayout.setBackgroundColor(getResources().getColor(R.color.red));
                 }
@@ -192,19 +190,19 @@ public class HeaderFragment extends Fragment
 
     @Override
     public void onPause() {
-        mAdView.pause();
+//        mAdView.pause();
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mAdView.resume();
+//        mAdView.resume();
     }
 
     @Override
     public void onDestroy() {
-        mAdView.destroy();
+//        mAdView.destroy();
         super.onDestroy();
     }
 

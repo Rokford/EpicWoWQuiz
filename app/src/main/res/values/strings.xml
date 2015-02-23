@@ -28,23 +28,23 @@
     <string name="another_game">Another game!</string>
     <string name="back_to_main_menu">Back to Main Menu</string>
 
-    <string name="alliance">Alliance</string>
-    <string name="horde">Horde</string>
+    <string name="alliance">Disciples of War</string>
+    <string name="horde">Disciples of Magic</string>
 
     <string name="no_rank">Unranked</string>
 
-    <string name="no_rankalliance">Private</string>
-    <string name="no_rankhorde">Scout</string>
+    <string name="no_rankmagic">Private</string>
+    <string name="no_rankwar">Scout</string>
 
-    <string name="rank1alliance">Sergeant</string>
-    <string name="rank2alliance">Knight</string>
-    <string name="rank3alliance">Lieutenant Commander</string>
-    <string name="rank4alliance">Grand Marshal</string>
+    <string name="rank1magic">Sergeant</string>
+    <string name="rank2magic">Knight</string>
+    <string name="rank3magic">Commander</string>
+    <string name="rank4magic">General</string>
 
-    <string name="rank1horde">Sergeant</string>
-    <string name="rank2horde">Stone Guard</string>
-    <string name="rank3horde">Champion</string>
-    <string name="rank4horde">High Warlord</string>
+    <string name="rank1war">Sergeant</string>
+    <string name="rank2war">Centurion</string>
+    <string name="rank3war">Champion</string>
+    <string name="rank4war">Warlord</string>
 
     <string name="dialog_text">You will lose previously achieved rank and medals.\n\nContinue?</string>
     <string name="dialog_title">Warning</string>
@@ -57,14 +57,14 @@
 
     <string name="help2">How to play?</string>
 
-    <string name="help3">First, choose your faction and race.</string>
+    <string name="help3">First, customize your character profile</string>
 
     <string name="help4">You can test your Warcraft knowledge by playing Easy, Medium or Hard tier.\n\nEach tier contains ten, randomly generated, questions. Depending on your score, you can be awarded with Bronze, Silver or Golden medal.</string>
 
-    <string name="help5">Each faction also has its own progression path.\nThe better medals you manage to get, the higher rank you will be rewarded with!\nYou start as Private as Alliance and Scout as Horde.</string>
+    <string name="help5">Each faction also has its own progression path.\nThe better medals you manage to get, the higher rank you will be rewarded with!</string>
 
     <string name="help6">There is a rumor that something special can happen if you manage to master the quiz by getting the Gold medal in all three tiers... Good luck!</string>
 
-    <string name="help7">Epic WoW quiz is not a product made by Blizzard Entertainment. It is unofficial game related to the Warcraft universe. Used graphic assets are property of Blizzard Entertainment.</string>
+    <string name="help7">Disclaimer:\nEpic WoW quiz is not a product made by Blizzard Entertainment. It is unofficial game related to the Warcraft universe. Used graphic assets are property of Blizzard Entertainment.\n\n©2004 Blizzard Entertainment, Inc. All rights reserved. World of Warcraft, Warcraft and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.</string>
 
 </resources>

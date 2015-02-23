@@ -28,7 +28,7 @@
                 android:layout_margin="15dp"
                 android:id="@+id/humanImageView"
                 android:layout_height="60dp"
-                android:src="@drawable/alliance"/>
+                android:src="@drawable/priest"/>
 
             <ImageView
                 android:layout_width="60dp"
@@ -37,7 +37,7 @@
 
                 android:layout_margin="15dp"
 
-                android:src="@drawable/alliance_nightelf"/>
+                android:src="@drawable/mage"/>
 
             <ImageView
                 android:layout_width="60dp"
@@ -46,7 +46,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="15dp"
 
-                android:src="@drawable/alliance_gnome"/>
+                android:src="@drawable/druid"/>
 
 
         </LinearLayout>
@@ -76,7 +76,7 @@
                 android:id="@+id/orcImageView"
 
                 android:layout_height="60dp"
-                android:src="@drawable/horde"/>
+                android:src="@drawable/warrior"/>
 
             <ImageView
                 android:layout_width="60dp"
@@ -84,7 +84,7 @@
                 android:layout_margin="15dp"
                 android:id="@+id/undeadImageView"
 
-                android:src="@drawable/horde_undead"/>
+                android:src="@drawable/rogue"/>
 
             <ImageView
                 android:layout_width="60dp"
@@ -92,7 +92,7 @@
                 android:layout_margin="15dp"
                 android:id="@+id/bloodelfImageView"
 
-                android:src="@drawable/horde_bloodelf"/>
+                android:src="@drawable/hunter"/>
 
 
         </LinearLayout>

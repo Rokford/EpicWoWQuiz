@@ -59,9 +59,9 @@
 
     <string name="help3">First, customize your character profile</string>
 
-    <string name="help4">You can test your Warcraft knowledge by playing Easy, Medium or Hard tier.\n\nEach tier contains ten, randomly generated, questions. Depending on your score, you can be awarded with Bronze, Silver or Golden medal.</string>
+    <string name="help4">You can test your Warcraft knowledge by playing Easy, Medium or Hard tier.\n\nEach tier contains ten, randomly generated, questions. Depending on your score, you can be awarded with Bronze, Silver or Gold medal.</string>
 
-    <string name="help5">Each faction also has its own progression path.\nThe better medals you manage to get, the higher rank you will be rewarded with!</string>
+    <string name="help5">Your rank and title depends on medals you managed to obtain.</string>
 
     <string name="help6">There is a rumor that something special can happen if you manage to master the quiz by getting the Gold medal in all three tiers... Good luck!</string>
 

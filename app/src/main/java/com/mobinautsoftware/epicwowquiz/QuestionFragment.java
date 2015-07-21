@@ -35,7 +35,7 @@ public class QuestionFragment extends Fragment
 {
     private static final String ARG_QUESTION = "ARG_QUESTION";
 
-    private static final int TIME_LIMIT = 1 * 10 * 1000;
+    private static final int TIME_LIMIT = 1 * 25 * 1000;
 
     private Question question;
 

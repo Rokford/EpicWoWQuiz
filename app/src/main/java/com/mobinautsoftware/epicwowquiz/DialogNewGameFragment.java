@@ -34,7 +34,7 @@ public class DialogNewGameFragment extends android.support.v4.app.DialogFragment
                 {
                     public void onClick(DialogInterface dialog, int which)
                     {
-                        onButtonPressed(faction, race, true);
+                        onButtonPressed(faction, true);
                     }
                 })
 
@@ -43,16 +43,16 @@ public class DialogNewGameFragment extends android.support.v4.app.DialogFragment
                 {
                     public void onClick(DialogInterface dialog, int which)
                     {
-                        onButtonPressed(faction, race, false);
+                        onButtonPressed(faction, false);
                     }
                 }).create();
     }
 
-    public void onButtonPressed(String faction, String race, boolean shouldProceed)
+    public void onButtonPressed(String faction, boolean shouldProceed)
     {
         if (mListener != null)
         {
-            mListener.onDialogOptionChosen(faction, race,  shouldProceed);
+            mListener.onDialogOptionChosen(faction, shouldProceed);
         }
     }
 
@@ -79,16 +79,12 @@ public class DialogNewGameFragment extends android.support.v4.app.DialogFragment
 
     public interface OnDialogOptionChosenListener
     {
-        public void onDialogOptionChosen(String faction, String race, boolean shouldProceed);
+        public void onDialogOptionChosen(String faction, boolean shouldProceed);
     }
 
     public void setFaction(String faction)
     {
         this.faction = faction;
-    }
-    public void setRace(String race)
-    {
-        this.race = race;
     }
 
 }

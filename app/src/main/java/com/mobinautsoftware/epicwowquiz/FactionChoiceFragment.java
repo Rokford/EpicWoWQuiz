@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,11 +76,11 @@ public class FactionChoiceFragment extends Fragment
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onFactionChosen(String faction, String race)
+    public void onFactionChosen(String faction)
     {
         if (mListener != null)
         {
-            mListener.onFactionChosen(faction, race);
+            mListener.onFactionChosen(faction);
         }
     }
 
@@ -90,65 +90,24 @@ public class FactionChoiceFragment extends Fragment
         RelativeLayout upperRL = (RelativeLayout) view.findViewById(R.id.upperRL);
         RelativeLayout lowerRL = (RelativeLayout) view.findViewById(R.id.loweRL);
 
-        ImageView humanImageView = (ImageView) view.findViewById(R.id.humanImageView);
-        ImageView nightelfImageView = (ImageView) view.findViewById(R.id.nightelfImageView);
-        ImageView gnomeImageView = (ImageView) view.findViewById(R.id.gnomeImageView);
+        TextView humanTextView = (TextView) view.findViewById(R.id.humanTextView);
+        TextView orcTextView = (TextView) view.findViewById(R.id.orcTextView);
 
-        ImageView orcImageView = (ImageView) view.findViewById(R.id.orcImageView);
-        ImageView undeadImageView = (ImageView) view.findViewById(R.id.undeadImageView);
-        ImageView bloodelfImageView = (ImageView) view.findViewById(R.id.bloodelfImageView);
-
-        humanImageView.setOnClickListener(new View.OnClickListener()
+        humanTextView.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                onFactionChosen(App.FACTION_ALLIANCE, App.RACE_HUMAN);
+                onFactionChosen(App.FACTION_ALLIANCE);
             }
         });
 
-        nightelfImageView.setOnClickListener(new View.OnClickListener()
+        orcTextView.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                onFactionChosen(App.FACTION_ALLIANCE, App.RACE_NIGHTELF);
-            }
-        });
-
-        gnomeImageView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                onFactionChosen(App.FACTION_ALLIANCE, App.RACE_GNOME);
-            }
-        });
-
-        orcImageView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                onFactionChosen(App.FACTION_HORDE, App.RACE_ORC);
-            }
-        });
-
-        undeadImageView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                onFactionChosen(App.FACTION_HORDE, App.RACE_UNDEAD);
-            }
-        });
-
-        bloodelfImageView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                onFactionChosen(App.FACTION_HORDE, App.RACE_BLOODELF);
+                onFactionChosen(App.FACTION_HORDE);
             }
         });
 
@@ -180,7 +139,7 @@ public class FactionChoiceFragment extends Fragment
     public interface OnFactionChosenListener
     {
         // TODO: Update argument type and name
-        public void onFactionChosen(String faction, String race);
+        public void onFactionChosen(String faction);
     }
 
 }

@@ -119,24 +119,10 @@ public class HeaderFragment extends Fragment
             {
                 if (info.getFaction().equals(App.FACTION_ALLIANCE))
                 {
-                    if (info.getRace().equals(App.RACE_HUMAN))
-                        portraitImageView.setImageResource(R.drawable.priest);
-                    else if (info.getRace().equals(App.RACE_NIGHTELF))
-                        portraitImageView.setImageResource(R.drawable.mage);
-                    else if (info.getRace().equals(App.RACE_GNOME))
-                        portraitImageView.setImageResource(R.drawable.druid);
-
                     outerLinearLayout.setBackgroundColor(getResources().getColor(R.color.blue));
                 }
                 else
                 {
-                    if (info.getRace().equals(App.RACE_ORC))
-                        portraitImageView.setImageResource(R.drawable.warrior);
-                    else if (info.getRace().equals(App.RACE_UNDEAD))
-                        portraitImageView.setImageResource(R.drawable.rogue);
-                    else if (info.getRace().equals(App.RACE_BLOODELF))
-                        portraitImageView.setImageResource(R.drawable.hunter);
-
                     outerLinearLayout.setBackgroundColor(getResources().getColor(R.color.red));
                 }
             }
